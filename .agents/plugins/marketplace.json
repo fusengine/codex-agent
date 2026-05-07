@@ -1,0 +1,224 @@
+{
+  "name": "fusengine-plugins",
+  "interface": {
+    "displayName": "Fusengine Codex Plugins"
+  },
+  "plugins": [
+    {
+      "name": "core-guards",
+      "source": {
+        "source": "local",
+        "path": "./plugins/core-guards"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-rules",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex-rules"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-ai-pilot",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ai-pilot"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-commit-pro",
+      "source": {
+        "source": "local",
+        "path": "./plugins/commit-pro"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "fuse-laravel",
+      "source": {
+        "source": "local",
+        "path": "./plugins/laravel-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-nextjs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/nextjs-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-swift-apple-expert",
+      "source": {
+        "source": "local",
+        "path": "./plugins/swift-apple-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-solid",
+      "source": {
+        "source": "local",
+        "path": "./plugins/solid"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "fuse-tailwindcss",
+      "source": {
+        "source": "local",
+        "path": "./plugins/tailwindcss"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-react",
+      "source": {
+        "source": "local",
+        "path": "./plugins/react-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-design",
+      "source": {
+        "source": "local",
+        "path": "./plugins/design-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-prompt-engineer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/prompt-engineer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "fuse-shadcn-ui",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shadcn-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-security",
+      "source": {
+        "source": "local",
+        "path": "./plugins/security-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    },
+    {
+      "name": "fuse-astro",
+      "source": {
+        "source": "local",
+        "path": "./plugins/astro-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-changelog",
+      "source": {
+        "source": "local",
+        "path": "./plugins/changelog-watcher"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "fuse-cartographer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cartographer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    },
+    {
+      "name": "fuse-memory",
+      "source": {
+        "source": "local",
+        "path": "./plugins/memory-neural"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    }
+  ]
+}
