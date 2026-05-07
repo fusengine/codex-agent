@@ -1,5 +1,11 @@
 # Release Notes
 
+## [1.39.1] - 07-05-2026
+
+- Fixed (docs): corrected install instructions — `fusengine/codex-agent` (was incorrectly pointing to old Claude repo `fusengine/agents` causing broken install path resolution)
+- Changed (docs): unified user-facing paths from `$CODEX_HOME/...` to `~/.codex/...` across README, installation guide, hooks reference, plugin docs, and CODEX_MIGRATION
+- Fixed (docs): replaced Windows backslash paths (`~\.codex\plugins\...`) with forward slashes — PowerShell handles both, removes path inconsistency between Linux/macOS and Windows install commands
+
 ## [1.39.0] - 07-05-2026
 
 - Added (core-guards): `transcript-watcher.py` (SessionStart, double-fork POSIX) tails the rollout JSONL and captures non-hookable native Codex tools (`read_file`, `web_search`, `spawn_agent`, `tool_search_call`); paired with `sync-transcript-to-session.py` (PostToolUse) to feed the APEX session-state
