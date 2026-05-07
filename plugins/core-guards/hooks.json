@@ -1,0 +1,232 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "_description": "Git & Install & Security & Write guards for Bash commands",
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "_description": "Block Bash file writes (python -c, sed -i, redirects) \u2014 forces Edit/Write tools",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/bash-write-guard.py"
+          },
+          {
+            "_description": "Block destructive git commands (push --force, reset --hard, etc.)",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/git-guard.py"
+          },
+          {
+            "_description": "Ask confirmation before installing packages (npm, pip, brew, etc.)",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/install-guard.py"
+          },
+          {
+            "_description": "Validate dangerous commands via security rules",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/security-guard.py"
+          }
+        ]
+      },
+      {
+        "_description": "Pre-commit validation (linters, tests) before git commit",
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "_description": "Run ESLint, TypeScript, Prettier, Ruff before commit",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/pre-commit-guard.py"
+          }
+        ]
+      },
+      {
+        "_description": "Block file edits matching .codexignore (secrets, .env, credentials)",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "_description": "Deny tool calls on .codexignore-matched paths",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/codexignore-guard.py"
+          }
+        ]
+      },
+      {
+        "_description": "SOLID: Enforce interface separation in component files",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "_description": "Block interfaces/types in .tsx/.jsx/.vue files - must be in src/interfaces/",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/enforce-interfaces.py"
+          }
+        ]
+      },
+      {
+        "_description": "SOLID: Block edits to files > 100 lines - must split first",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "_description": "PreToolUse blocker for oversized files",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/enforce-file-size.py"
+          }
+        ]
+      },
+      {
+        "_description": "SOLID: Require reading SOLID principles before coding",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "_description": "Block code modifications if SOLID rules not read",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/require-solid-read.py"
+          }
+        ]
+      },
+      {
+        "_description": "APEX: Require Agent calls (explore/research/domain) before editing code",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "_description": "Block code edits if no Agent tool called in session",
+            "type": "command",
+            "command": "python3 ./scripts/pre-tool-use/require-apex-agents.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_description": "APEX: Track sub-agent MCP/exploration calls for APEX compliance",
+        "matcher": "Bash|mcp__context7__query-docs|mcp__context7__resolve-library-id|mcp__exa__web_search_exa|mcp__exa__get_code_context_exa|mcp__exa__deep_researcher_start",
+        "hooks": [
+          {
+            "_description": "Record MCP/exploration calls from sub-agents as APEX phases",
+            "type": "command",
+            "command": "python3 ./scripts/post-tool-use/track-subagent-research.py"
+          }
+        ]
+      },
+      {
+        "_description": "APEX: Sync Codex native tool calls (read_file, web_search, etc.) from transcript watcher into session state",
+        "matcher": "Bash|apply_patch|Write|Edit",
+        "hooks": [
+          {
+            "_description": "Read transcript-events JSONL and update session-state agents bucket",
+            "type": "command",
+            "command": "python3 ./scripts/post-tool-use/sync-transcript-to-session.py"
+          }
+        ]
+      },
+      {
+        "_description": "Cache MCP results (Context7/Exa) to context/mcp/ for reuse across sub-agents",
+        "matcher": "mcp__context7__query-docs|mcp__exa__web_search_exa|mcp__exa__get_code_context_exa",
+        "hooks": [
+          {
+            "_description": "Persist compacted MCP responses to disk cache",
+            "type": "command",
+            "command": "python3 ./scripts/post-tool-use/cache-mcp-result.py"
+          }
+        ]
+      },
+      {
+        "_description": "SOLID validation and session tracking after file modifications",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "_description": "SOLID: Block files exceeding 100 lines - must split into modules",
+            "type": "command",
+            "command": "python3 ./scripts/post-tool-use/enforce-file-size.py"
+          },
+          {
+            "_description": "Track cumulative code file changes per session for sniper trigger",
+            "type": "command",
+            "command": "python3 ./scripts/post-tool-use/track-session-changes.py"
+          },
+          {
+            "_description": "Post-edit TypeScript validation",
+            "type": "command",
+            "command": "python3 ./scripts/post-tool-use/post-edit-typescript.py"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "_description": "Session initialization - load context and cleanup stale states",
+        "matcher": "",
+        "hooks": [
+          {
+            "_description": "Inject AGENTS.md content into session context",
+            "type": "command",
+            "command": "python3 ./scripts/session-start/inject-codex-md.py"
+          },
+          {
+            "_description": "Load development context (git status, project type detection)",
+            "type": "command",
+            "command": "python3 ./scripts/session-start/load-dev-context.py"
+          },
+          {
+            "_description": "Cleanup stale session state files from /tmp",
+            "type": "command",
+            "command": "python3 ./scripts/session-start/cleanup-session-states.py"
+          },
+          {
+            "_description": "Spawn background watcher tailing rollout JSONL for non-hookable tool calls (read_file, web_search, spawn_agent, etc.)",
+            "type": "command",
+            "command": "python3 ./scripts/transcript-watcher.py"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "_description": "Process user prompt - detect APEX triggers and inject rules",
+        "matcher": "",
+        "hooks": [
+          {
+            "_description": "Read AGENTS.md + auto-detect if APEX workflow should be triggered",
+            "type": "command",
+            "command": "python3 ./scripts/user-prompt/read-codex-md.py"
+          }
+        ]
+      },
+      {
+        "_description": "BRAINSTORM: Detect creation intent and flag brainstorming required",
+        "matcher": "",
+        "hooks": [
+          {
+            "_description": "Detect create/build/new keywords and set brainstorming_required flag",
+            "type": "command",
+            "command": "python3 ./scripts/user-prompt/detect-creation-intent.py"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "_description": "Cross-platform completion sound (macOS/Linux/Windows)",
+        "matcher": "",
+        "hooks": [
+          {
+            "_description": "Play task completion sound via OS-native player",
+            "type": "command",
+            "command": "python3 ./scripts/stop/notify-completion.py"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "_description": "Sound for ALL permission dialogs (system + hook-triggered)",
+        "matcher": "",
+        "hooks": [
+          {
+            "_description": "Play permission request sound",
+            "type": "command",
+            "command": "afplay ./song/permission-need.mp3"
+          }
+        ]
+      }
+    ]
+  }
+}
