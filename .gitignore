@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Temp
+*.tmp
+*.temp
+
+# Linter caches
+.ruff_cache/
+
+# Cartographer (auto-generated at SessionStart)
+.cartographer/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+.mcp.json
+# APEX tracking (auto-generated)
+.codex/*
+plugins/core-guards/statusline/node_modules
+plugins/core-guards/statusline/bun.lock
+plugins/core-guards/statusline/dist
+plugins/core-guards/statusline/user-config.json.bkp
+archives
+scripts/.codex/*
+plugins/ai-pilot/scripts/node_modules
+plugins/ai-pilot/scripts/bun.lock
+
+# WIP - en développement, ne pas commiter
+Neuronal-Project/
+plugins/memory-neural/
+docs/plugins/memory.md
+
+# APEX tracking (auto-generated)
+.codex/apex/
+plugins/design-expert/scripts/.ruff_cache
+test-design
+.audit
