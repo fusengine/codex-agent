@@ -1,5 +1,15 @@
 # Release Notes
 
+## [1.39.0] - 07-05-2026
+
+- Added (core-guards): `transcript-watcher.py` (SessionStart, double-fork POSIX) tails the rollout JSONL and captures non-hookable native Codex tools (`read_file`, `web_search`, `spawn_agent`, `tool_search_call`); paired with `sync-transcript-to-session.py` (PostToolUse) to feed the APEX session-state
+- Added (core-guards): `codexignore-guard.py` (PreToolUse `Write|Edit`) blocks edits matching `.codexignore` patterns (gitignore-style: `.env`, `secrets/`, `*.key`, `credentials.json`)
+- Added (core-guards): `notify-completion.py` (Stop) cross-platform TTS — afplay (macOS), paplay/aplay/mpv/ffplay (Linux), SoundPlayer (Windows) with silent fallback
+- Added (scripts): Codex feature flags installer — 8 non-interactive defaults (`memories`, `undo`, `chronicle`, `goals`, `enable_fanout`, `steer`, `tool_search`, `child_agents_md`) + 8 interactive prompts (`approval_policy`, `sandbox_mode`, `web_search`, `personality`, `model_reasoning_effort`, ...) via `@clack/prompts`
+- Added (scripts): `_shared/` mirroring to `$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/_shared/` and absolute path rewriting in `hooks.json` during install
+- Changed (docs): full alignment for Codex CLI 0.128+ — matchers whitelist (`Bash`, `apply_patch`, `mcp__*`), Codex/Claude split for hooks reference, `hookSpecificOutput` format, troubleshooting on cache plugin paths
+- Archived (plugins): hook events without Codex equivalent (`SubagentStart`, `SubagentStop`, `SessionEnd`, `Notification`, `PreCompact`, `PostToolUseFailure`, `TaskCompleted`, `TeammateIdle`, `InstructionsLoaded`, Stop `type:prompt`) preserved in `codex-unsupported-hooks.json` per plugin
+
 ## [1.38.74] - 30-04-2026
 
 - Added (core-guards 1.1.26, ai-pilot 1.2.23): MCP response cache system — per-session cache of mcp__context7/exa results, SubagentStart inject, APEX research-expert phase satisfied by cache reads
