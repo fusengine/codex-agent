@@ -41,10 +41,10 @@ Modules :
 
 L'installer (`setup.sh` / `setup.ps1`) :
 
-1. Copie chaque plugin dans `$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/local/`
-2. Mirror `plugins/_shared/` vers `$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/_shared/` (résolu via `..` x3 depuis `scripts/`)
+1. Copie chaque plugin dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/`
+2. Mirror `plugins/_shared/` vers `~/.codex/plugins/cache/fusengine-plugins/<plugin>/_shared/` (résolu via `..` x3 depuis `scripts/`)
 3. Réécrit les chemins relatifs `./scripts/...` en absolus dans `hooks.json`
-4. Active `[features] codex_hooks = true` et `[features] plugin_hooks = true` dans `$CODEX_HOME/config.toml`
+4. Active `[features] codex_hooks = true` et `[features] plugin_hooks = true` dans `~/.codex/config.toml`
 
 ## Feature flags Codex
 

@@ -86,19 +86,19 @@ Modular SOLID statusline for Codex terminal.
 ### 2. Install Hooks + Statusline
 
 ```bash
-$CODEX_HOME/plugins/marketplaces/fusengine-plugins/setup.sh
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh
 ```
 
 This script will:
-- Install Codex hooks in `$CODEX_HOME/hooks.json`
-- Enable `features.codex_hooks` in `$CODEX_HOME/config.toml`
+- Install Codex hooks in `~/.codex/hooks.json`
+- Enable `features.codex_hooks` in `~/.codex/config.toml`
 - Install statusline bun dependencies
-- Configure `[tui].status_line` in `$CODEX_HOME/config.toml`
+- Configure `[tui].status_line` in `~/.codex/config.toml`
 
 ### 3. Configure Statusline Options
 
 Codex currently exposes the terminal footer through built-in `status_line`
-segments in `$CODEX_HOME/config.toml`. The installer writes:
+segments in `~/.codex/config.toml`. The installer writes:
 
 ```toml
 [tui]

@@ -4,11 +4,11 @@ Expert Swift & SwiftUI development plugin for Codex covering all Apple platforms
 
 ## Installation
 
-The plugin is installed at `$CODEX_HOME/plugins/marketplaces/fusengine-plugins/plugins/swift-apple-expert/`
+The plugin is installed at `~/.codex/plugins/marketplaces/fusengine-plugins/plugins/swift-apple-expert/`
 
 To verify installation:
 ```bash
-ls $CODEX_HOME/plugins/marketplaces/fusengine-plugins/plugins/swift-apple-expert/
+ls ~/.codex/plugins/marketplaces/fusengine-plugins/plugins/swift-apple-expert/
 ```
 
 ## Skills Included

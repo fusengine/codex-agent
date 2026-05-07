@@ -43,7 +43,7 @@ APEX workflow orchestrator with sniper validation and research capabilities.
 4-level persistent cache to reduce redundant operations and save tokens (60-75% savings).
 
 ```
-$CODEX_HOME/fusengine-cache/
+~/.codex/fusengine-cache/
 ├── explore/{project-hash}/    # Architecture snapshots
 │   ├── metadata.json
 │   └── snapshot.md

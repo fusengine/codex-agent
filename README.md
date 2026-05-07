@@ -22,19 +22,19 @@
 
 ```bash
 # Add marketplace
-/plugin marketplace add fusengine/agents
+/plugin marketplace add fusengine/codex-agent
 
 # Install all plugins
 /plugin install fuse-ai-pilot fuse-commit-pro fuse-laravel fuse-nextjs fuse-react fuse-astro fuse-swift-apple-expert fuse-solid fuse-tailwindcss fuse-design fuse-prompt-engineer fuse-shadcn-ui fuse-security fuse-changelog
 
-# Setup (hooks + API keys + MCP servers)
-$CODEX_HOME/plugins/marketplaces/fusengine-plugins/setup.sh    # macOS / Linux
-~\.codex\plugins\marketplaces\fusengine-plugins\setup.ps1       # Windows
+# Setup (hooks + API keys + MCP servers + feature flags)
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh        # macOS / Linux
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.ps1       # Windows (run via PowerShell)
 ```
 
 **Statusline (optional):**
 ```bash
-bun --cwd $CODEX_HOME/plugins/marketplaces/fusengine-plugins/plugins/core-guards/statusline run config
+bun --cwd ~/.codex/plugins/marketplaces/fusengine-plugins/plugins/core-guards/statusline run config
 ```
 
 ## How It Works

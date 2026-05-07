@@ -8,7 +8,7 @@
 ## 1. Add Marketplace
 
 ```bash
-/plugin marketplace add fusengine/agents
+/plugin marketplace add fusengine/codex-agent
 ```
 
 ## 2. Install Plugins
@@ -28,18 +28,18 @@
 ### macOS / Linux
 
 ```bash
-$CODEX_HOME/plugins/marketplaces/fusengine-plugins/setup.sh
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-~\.codex\plugins\marketplaces\fusengine-plugins\setup.ps1
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.ps1
 ```
 
 This installs:
 - **Hooks** (PreToolUse, PostToolUse, SessionStart, UserPromptSubmit, Stop, PermissionRequest) — chemins absolus réécrits pour Codex
-- **`_shared/`** modules mirrorés dans `$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/_shared/`
+- **`_shared/`** modules mirrorés dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/_shared/`
 - **AGENTS.md** (global rules)
 - **API keys** (interactive prompts if missing)
 - **Shell config** (bash/zsh/fish/PowerShell)
@@ -99,7 +99,7 @@ Le guard `codexignore-guard.py` (PreToolUse `Write|Edit`) remonte l'arbre depuis
 
 ## Manual API Keys Configuration
 
-If you skipped API keys during setup, edit `$CODEX_HOME/.env`:
+If you skipped API keys during setup, edit `~/.codex/.env`:
 
 ```bash
 export CONTEXT7_API_KEY="ctx7sk-xxx"
@@ -121,20 +121,20 @@ curl -fsSL https://bun.sh/install | bash
 ### Hooks not working
 ```bash
 # Re-run setup
-$CODEX_HOME/plugins/marketplaces/fusengine-plugins/setup.sh  # or setup.ps1 on Windows
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh  # or setup.ps1 on Windows
 ```
 
 ### Check hooks installation
 
-Sous Codex, les hooks sont installés directement par plugin dans `$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/local/hooks.json` (chemins absolus réécrits par l'installer). Vérifier qu'ils existent :
+Sous Codex, les hooks sont installés directement par plugin dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/hooks.json` (chemins absolus réécrits par l'installer). Vérifier qu'ils existent :
 
 ```bash
-ls $CODEX_HOME/plugins/cache/fusengine-plugins/*/local/hooks.json
-grep -l "PreToolUse" $CODEX_HOME/plugins/cache/fusengine-plugins/*/local/hooks.json
+ls ~/.codex/plugins/cache/fusengine-plugins/*/local/hooks.json
+grep -l "PreToolUse" ~/.codex/plugins/cache/fusengine-plugins/*/local/hooks.json
 ```
 
 Vérifier les feature flags Codex :
 
 ```bash
-grep -E "codex_hooks|plugin_hooks|memories|undo|chronicle" $CODEX_HOME/config.toml
+grep -E "codex_hooks|plugin_hooks|memories|undo|chronicle" ~/.codex/config.toml
 ```

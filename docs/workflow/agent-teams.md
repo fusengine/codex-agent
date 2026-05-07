@@ -7,7 +7,7 @@ Coordinate multiple Codex agents working in true parallel with separate context 
 Sous Codex CLI 0.128+, les agent teams reposent sur `enable_fanout`, `child_agents_md` et `steer` — l'installer les active par défaut :
 
 ```toml
-# $CODEX_HOME/config.toml
+# ~/.codex/config.toml
 [features]
 enable_fanout = true
 child_agents_md = true

@@ -14,10 +14,10 @@ The hooks system ensures that agents:
 ### Codex CLI 0.128+ (natif)
 
 ```
-$CODEX_HOME/config.toml                 ← [features] codex_hooks=true, plugin_hooks=true
+~/.codex/config.toml                 ← [features] codex_hooks=true, plugin_hooks=true
        │
        ▼
-$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/local/hooks.json
+~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/hooks.json
        │                                ← chemins absolus réécrits par l'installer
        ▼
 python3 ./scripts/<event>/<guard>.py    ← exécuté directement par Codex
@@ -39,18 +39,18 @@ plugins/*/hooks/hooks.json
 
 ### macOS / Linux
 ```bash
-$CODEX_HOME/plugins/marketplaces/fusengine-plugins/setup.sh
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh
 ```
 
 ### Windows (PowerShell)
 ```powershell
-~\.codex\plugins\marketplaces\fusengine-plugins\setup.ps1
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.ps1
 ```
 
 L'installer écrit :
-- **`hooks.json`** par plugin dans `$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/local/` (chemins absolus)
-- **`_shared/`** mirroré dans `$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/_shared/`
-- **`[features] codex_hooks=true, plugin_hooks=true`** + 8 feature flags Codex (memories, undo, chronicle, goals, enable_fanout, steer, tool_search, child_agents_md) dans `$CODEX_HOME/config.toml`
+- **`hooks.json`** par plugin dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/` (chemins absolus)
+- **`_shared/`** mirroré dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/_shared/`
+- **`[features] codex_hooks=true, plugin_hooks=true`** + 8 feature flags Codex (memories, undo, chronicle, goals, enable_fanout, steer, tool_search, child_agents_md) dans `~/.codex/config.toml`
 - **API keys** (prompts interactifs)
 - **Shell config** (bash/zsh/fish/PowerShell)
 - **MCP servers** (sélection interactive)
@@ -122,7 +122,7 @@ Conservés dans `plugins/<plugin>/codex-unsupported-hooks.json` pour traçabilit
 
 ## Loader Architecture (v2.0 - Bun + SOLID — Claude legacy)
 
-> Sous Codex CLI 0.128+, le loader Bun n'est **pas** utilisé : Codex exécute directement les hooks listés dans `$CODEX_HOME/plugins/cache/fusengine-plugins/<plugin>/local/hooks.json`. La structure ci-dessous concerne uniquement Claude Code.
+> Sous Codex CLI 0.128+, le loader Bun n'est **pas** utilisé : Codex exécute directement les hooks listés dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/hooks.json`. La structure ci-dessous concerne uniquement Claude Code.
 
 ```
 scripts/
@@ -257,17 +257,17 @@ sys.exit(0)
 ### Hooks not loading
 ```bash
 # Vérifier que les hooks plugin sont en place avec chemins absolus
-ls $CODEX_HOME/plugins/cache/fusengine-plugins/*/local/hooks.json
-grep -l "PreToolUse" $CODEX_HOME/plugins/cache/fusengine-plugins/*/local/hooks.json
+ls ~/.codex/plugins/cache/fusengine-plugins/*/local/hooks.json
+grep -l "PreToolUse" ~/.codex/plugins/cache/fusengine-plugins/*/local/hooks.json
 
 # Vérifier les feature flags Codex
-grep -E "codex_hooks|plugin_hooks" $CODEX_HOME/config.toml
+grep -E "codex_hooks|plugin_hooks" ~/.codex/config.toml
 
 # Re-run installation (macOS/Linux)
-$CODEX_HOME/plugins/marketplaces/fusengine-plugins/setup.sh
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh
 
 # Re-run installation (Windows PowerShell)
-~\.codex\plugins\marketplaces\fusengine-plugins\setup.ps1
+~/.codex/plugins/marketplaces/fusengine-plugins/setup.ps1
 ```
 
 ### Hook not executing
@@ -277,11 +277,11 @@ Test direct d'un guard Codex :
 ```bash
 # PreToolUse codexignore-guard
 echo '{"hook_event_name":"PreToolUse","tool_name":"Write","tool_input":{"file_path":"/tmp/test/.env"},"cwd":"/tmp/test"}' \
-  | python3 $CODEX_HOME/plugins/cache/fusengine-plugins/core-guards/local/scripts/pre-tool-use/codexignore-guard.py
+  | python3 ~/.codex/plugins/cache/fusengine-plugins/core-guards/local/scripts/pre-tool-use/codexignore-guard.py
 
 # PostToolUse sync-transcript
 echo '{"hook_event_name":"PostToolUse","tool_name":"Bash","tool_input":{"command":"ls"},"cwd":"/tmp/test"}' \
-  | python3 $CODEX_HOME/plugins/cache/fusengine-plugins/core-guards/local/scripts/post-tool-use/sync-transcript-to-session.py
+  | python3 ~/.codex/plugins/cache/fusengine-plugins/core-guards/local/scripts/post-tool-use/sync-transcript-to-session.py
 ```
 
 ### Debug mode

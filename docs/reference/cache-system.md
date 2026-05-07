@@ -12,7 +12,7 @@
 ## Overview
 
 ```
-$CODEX_HOME/fusengine-cache/
+~/.codex/fusengine-cache/
 ├── explore/{project-hash}/    # Architecture snapshots
 ├── doc/{project-hash}/        # Documentation cache
 ├── lessons/{project-hash}/    # Sniper error patterns
@@ -41,7 +41,7 @@ Each project gets a unique hash (first 16 chars of SHA-256 of the project path).
 | Property | Value |
 |----------|-------|
 | TTL | 24 hours |
-| Location | `$CODEX_HOME/fusengine-cache/explore/{hash}/` |
+| Location | `~/.codex/fusengine-cache/explore/{hash}/` |
 | Capture | SubagentStart (`explore-cache-check.ts`) |
 | Format | `metadata.json` + `snapshot.md` |
 
@@ -57,7 +57,7 @@ Each project gets a unique hash (first 16 chars of SHA-256 of the project path).
 | Property | Value |
 |----------|-------|
 | TTL | 7 days |
-| Location | `$CODEX_HOME/fusengine-cache/doc/{hash}/` |
+| Location | `~/.codex/fusengine-cache/doc/{hash}/` |
 | Capture | SubagentStop (`cache-doc-from-transcript.ts`) |
 | Inject | SubagentStart (`doc-cache-inject.ts`) |
 | Format | `index.json` manifest + `docs/{doc-hash}.md` synthesis files |
@@ -91,7 +91,7 @@ Each project gets a unique hash (first 16 chars of SHA-256 of the project path).
 | Property | Value |
 |----------|-------|
 | TTL | 30 days |
-| Location | `$CODEX_HOME/fusengine-cache/lessons/{hash}/` |
+| Location | `~/.codex/fusengine-cache/lessons/{hash}/` |
 | Capture | SubagentStop (`cache-sniper-lessons.ts`) |
 | Inject | SubagentStart (`lessons-cache-inject.ts`) → ALL agents |
 | Promotion | `promote-global-lessons.ts` → `_global/{stack}.json` (3+ occurrences) |
@@ -138,7 +138,7 @@ Each project gets a unique hash (first 16 chars of SHA-256 of the project path).
 | Property | Value |
 |----------|-------|
 | TTL | 48 hours |
-| Location | `$CODEX_HOME/fusengine-cache/tests/{hash}/` |
+| Location | `~/.codex/fusengine-cache/tests/{hash}/` |
 | Capture | SubagentStop (`cache-test-results.ts`) |
 | Inject | SubagentStart (`test-cache-inject.ts`) → sniper |
 | Format | `results.json` with file checksums |
@@ -154,7 +154,7 @@ Each project gets a unique hash (first 16 chars of SHA-256 of the project path).
 
 | Property | Value |
 |----------|-------|
-| Location | `$CODEX_HOME/fusengine-cache/analytics/` |
+| Location | `~/.codex/fusengine-cache/analytics/` |
 | Capture | SessionEnd (`cache-analytics-save.ts`) |
 | Format | `sessions.jsonl` (one event per line) |
 
@@ -222,29 +222,29 @@ plugins/ai-pilot/scripts/lib/
 ### Check cache contents
 ```bash
 # List cached lessons for current project
-ls $CODEX_HOME/fusengine-cache/lessons/
+ls ~/.codex/fusengine-cache/lessons/
 
 # View latest lesson file
-cat $CODEX_HOME/fusengine-cache/lessons/*/$(ls -t $CODEX_HOME/fusengine-cache/lessons/*/ | head -1)
+cat ~/.codex/fusengine-cache/lessons/*/$(ls -t ~/.codex/fusengine-cache/lessons/*/ | head -1)
 
 # Check doc cache index
-cat $CODEX_HOME/fusengine-cache/doc/*/index.json | jq .
+cat ~/.codex/fusengine-cache/doc/*/index.json | jq .
 
 # View analytics
-cat $CODEX_HOME/fusengine-cache/analytics/sessions.jsonl
+cat ~/.codex/fusengine-cache/analytics/sessions.jsonl
 ```
 
 ### Clear cache
 ```bash
 # Clear all caches
-rm -rf $CODEX_HOME/fusengine-cache/
+rm -rf ~/.codex/fusengine-cache/
 
 # Clear only lessons
-rm -rf $CODEX_HOME/fusengine-cache/lessons/
+rm -rf ~/.codex/fusengine-cache/lessons/
 
 # Clear only doc cache
-rm -rf $CODEX_HOME/fusengine-cache/doc/
+rm -rf ~/.codex/fusengine-cache/doc/
 
 # Clear only tests cache
-rm -rf $CODEX_HOME/fusengine-cache/tests/
+rm -rf ~/.codex/fusengine-cache/tests/
 ```

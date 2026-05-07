@@ -73,7 +73,7 @@ Servers with `[✓]` have API keys configured. Servers with `[⚠ key missing]` 
 
 ## Configuration
 
-API keys are stored in `$CODEX_HOME/.env`:
+API keys are stored in `~/.codex/.env`:
 
 ```bash
 # Core (used by plugins)

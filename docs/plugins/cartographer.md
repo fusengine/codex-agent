@@ -7,7 +7,7 @@ Auto-generates navigable multi-level maps of the plugin ecosystem and project fi
 At every session start, the cartographer runs two scripts:
 
 1. **`generate_map.py`** — Scans all installed plugins, generates:
-   - Global plugin map: `$CODEX_HOME/plugins/.../.cartographer/index.md`
+   - Global plugin map: `~/.codex/plugins/.../.cartographer/index.md`
    - Per-plugin map: `plugins/{name}/.cartographer/index.md`
 
 2. **`generate_project_map.py`** — Scans the current project (if detected), generates:
