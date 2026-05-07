@@ -1,54 +1,54 @@
 # Codex Migration
 
-État courant de la migration des plugins vers Codex CLI 0.128+.
+Current state of the migration to Codex CLI 0.128+.
 
-## Ce qui est natif Codex
+## What is native to Codex
 
-Codex CLI 0.128 supporte officiellement ces hook events :
+Codex CLI 0.128 officially supports the following hook events:
 
 - `PreToolUse`, `PostToolUse`
 - `SessionStart`, `UserPromptSubmit`
 - `Stop`, `PermissionRequest`
 
-Matchers reconnus par Codex (whitelist stricte) :
+Matchers recognized by Codex (strict whitelist):
 
-- `Bash` — exécution shell
-- `apply_patch` — alias accepté pour `Write` / `Edit` (les hooks utilisent `Write|Edit`, l'installer réécrit si nécessaire)
-- `mcp__<server>__<tool>` — appels MCP
+- `Bash` — shell execution
+- `apply_patch` — accepted alias for `Write` / `Edit` (hooks use `Write|Edit`, the installer rewrites if needed)
+- `mcp__<server>__<tool>` — MCP calls
 
-Tout autre matcher (`Read`, `web_search`, `spawn_agent`, `Task`, etc.) est **silencieusement ignoré** par Codex.
+Any other matcher (`Read`, `web_search`, `spawn_agent`, `Task`, etc.) is **silently ignored** by Codex.
 
-## Outils natifs non-hookables
+## Non-hookable native tools
 
-Codex émet plusieurs appels que les hooks ne peuvent pas intercepter directement :
+Codex emits several calls that hooks cannot intercept directly:
 
 - `read_file`, `view_image`
 - `web_search`, `imagegen`
-- `spawn_agent`, `apply_patch` (en mode interne)
-- `tool_search_call`, `function_call` génériques
+- `spawn_agent`, `apply_patch` (in internal mode)
+- generic `tool_search_call`, `function_call`
 
-**Solution implémentée :** un `transcript-watcher.py` lancé au `SessionStart` (double-fork POSIX) tail le rollout JSONL (`~/.codex/sessions/YYYY/MM/DD/rollout-*.jsonl`) et capture ces événements. Un hook `PostToolUse` (`sync-transcript-to-session.py`) lit le buffer, classifie les events (explore/research) et les pousse dans le session-state utilisé par les guards APEX.
+**Implemented solution:** a `transcript-watcher.py` started at `SessionStart` (POSIX double-fork) tails the rollout JSONL (`~/.codex/sessions/YYYY/MM/DD/rollout-*.jsonl`) and captures these events. A `PostToolUse` hook (`sync-transcript-to-session.py`) reads the buffer, classifies the events (explore/research) and pushes them into the session-state used by APEX guards.
 
-Modules :
+Modules:
 
-- `plugins/core-guards/scripts/transcript-watcher.py` — entrypoint SessionStart
-- `plugins/core-guards/scripts/lib/transcript_watch.py` — boucle de polling + détachement
-- `plugins/core-guards/scripts/lib/transcript_events.py` — extraction d'events normalisés
-- `plugins/core-guards/scripts/lib/transcript_classifier.py` — classification explore vs research
-- `plugins/core-guards/scripts/post-tool-use/sync-transcript-to-session.py` — sync vers session-state
+- `plugins/core-guards/scripts/transcript-watcher.py` — SessionStart entrypoint
+- `plugins/core-guards/scripts/lib/transcript_watch.py` — polling loop + detachment
+- `plugins/core-guards/scripts/lib/transcript_events.py` — normalized event extraction
+- `plugins/core-guards/scripts/lib/transcript_classifier.py` — explore vs research classification
+- `plugins/core-guards/scripts/post-tool-use/sync-transcript-to-session.py` — sync to session-state
 
-## Hooks installés
+## Installed hooks
 
-L'installer (`setup.sh` / `setup.ps1`) :
+The installer (`setup.sh` / `setup.ps1`):
 
-1. Copie chaque plugin dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/`
-2. Mirror `plugins/_shared/` vers `~/.codex/plugins/cache/fusengine-plugins/<plugin>/_shared/` (résolu via `..` x3 depuis `scripts/`)
-3. Réécrit les chemins relatifs `./scripts/...` en absolus dans `hooks.json`
-4. Active `[features] codex_hooks = true` et `[features] plugin_hooks = true` dans `~/.codex/config.toml`
+1. Copies each plugin to `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/`
+2. Mirrors `plugins/_shared/` to `~/.codex/plugins/cache/fusengine-plugins/<plugin>/_shared/` (resolved via `..` x3 from `scripts/`)
+3. Rewrites relative `./scripts/...` paths to absolute paths in `hooks.json`
+4. Enables `[features] codex_hooks = true` and `[features] plugin_hooks = true` in `~/.codex/config.toml`
 
-## Feature flags Codex
+## Codex feature flags
 
-L'installer écrit ces flags non-interactifs (defaults) :
+The installer writes the following non-interactive flags (defaults):
 
 ```toml
 [features]
@@ -64,33 +64,33 @@ tool_search = true
 child_agents_md = true
 ```
 
-Et propose 8 prompts interactifs via `@clack/prompts` :
+And exposes 8 interactive prompts via `@clack/prompts`:
 
-- `memories` — knowledge persistente
+- `memories` — persistent knowledge
 - `undo` — undo session
-- `apps` — apps tierces
-- `approval_policy` — politique d'approbation
-- `sandbox_mode` — mode sandbox
-- `web_search` — recherche web native
-- `personality` — ton de réponse
-- `model_reasoning_effort` — effort de raisonnement
+- `apps` — third-party apps
+- `approval_policy` — approval policy
+- `sandbox_mode` — sandbox mode
+- `web_search` — native web search
+- `personality` — response tone
+- `model_reasoning_effort` — reasoning effort
 
-Modules :
+Modules:
 
 - `scripts/src/services/codex-features-defaults.ts`
 - `scripts/src/services/codex-features-prompts.ts`
 - `scripts/src/services/codex-features-toml.ts`
 - `scripts/src/services/codex-features.ts`
 
-## Sprint 1 — guards récents
+## Sprint 1 — recent guards
 
 | Guard | Type | Description |
 |-------|------|-------------|
-| `codexignore-guard.py` | PreToolUse `Write\|Edit` | Bloque les writes sur paths matchant `.codexignore` (gitignore-style) |
-| `notify-completion.py` | Stop | TTS cross-platform : `afplay` (macOS), `paplay`/`aplay`/`mpv`/`ffplay` (Linux), `SoundPlayer` (Windows) |
-| `transcript-watcher.py` | SessionStart | Capture des outils natifs non-hookables via tail du rollout JSONL |
+| `codexignore-guard.py` | PreToolUse `Write\|Edit` | Blocks writes on paths matching `.codexignore` (gitignore-style) |
+| `notify-completion.py` | Stop | Cross-platform TTS: `afplay` (macOS), `paplay`/`aplay`/`mpv`/`ffplay` (Linux), `SoundPlayer` (Windows) |
+| `transcript-watcher.py` | SessionStart | Captures non-hookable native tools by tailing the rollout JSONL |
 
-`.codexignore` supporte les patterns gitignore-style :
+`.codexignore` supports gitignore-style patterns:
 
 ```
 .env
@@ -100,25 +100,25 @@ secrets/
 credentials.json
 ```
 
-## Hook events archivés (non-supportés Codex)
+## Archived hook events (unsupported by Codex)
 
-`plugins/<plugin>/codex-unsupported-hooks.json` conserve les hook events qui n'ont pas d'équivalent direct Codex :
+`plugins/<plugin>/codex-unsupported-hooks.json` preserves hook events that have no direct Codex equivalent:
 
 - `SessionEnd`, `SubagentStart`, `SubagentStop`
 - `Notification`, `PreCompact`, `PostToolUseFailure`
 - `TaskCompleted`, `TeammateIdle`, `InstructionsLoaded`
 - Stop blocks `"type": "prompt"` (Claude Code only)
 
-Conservés pour traçabilité et future compatibilité.
+Preserved for traceability and future compatibility.
 
-## Vérification
+## Verification
 
 ```bash
 cd scripts
 bun run verify:codex
 ```
 
-Ou test ciblé d'un guard :
+Or targeted guard test:
 
 ```bash
 echo '{"hook_event_name":"PreToolUse","tool_name":"Write","tool_input":{"file_path":"/tmp/test/.env"},"cwd":"/tmp/test"}' \
