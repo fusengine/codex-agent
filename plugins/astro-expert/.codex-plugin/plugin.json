@@ -1,0 +1,47 @@
+{
+  "name": "fuse-astro",
+  "version": "1.0.6",
+  "description": "Expert Astro 6 with Islands Architecture, Content Layer, Actions, View Transitions, and multi-framework integration",
+  "author": {
+    "name": "Fusengine",
+    "email": "hello@fusengine.ch",
+    "url": "https://github.com/fusengine"
+  },
+  "homepage": "https://github.com/fusengine/agents",
+  "repository": "https://github.com/fusengine/agents",
+  "license": "MIT",
+  "keywords": [
+    "astro",
+    "islands",
+    "view-transitions",
+    "content-collections",
+    "ssg",
+    "ssr",
+    "starlight"
+  ],
+  "interface": {
+    "displayName": "Astro",
+    "shortDescription": "Expert Astro 6 with Islands Architecture, Content Layer, Actions, View Transitions, and multi-framework integration",
+    "longDescription": "Expert Astro 6 with Islands Architecture, Content Layer, Actions, View Transitions, and multi-framework integration",
+    "developerName": "Fusengine",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fusengine/agents",
+    "privacyPolicyURL": "",
+    "termsOfServiceURL": "",
+    "defaultPrompt": [
+      "Use Astro.",
+      "Review with Astro.",
+      "Apply Astro guidance."
+    ],
+    "brandColor": "#3B82F6",
+    "composerIcon": "",
+    "logo": "",
+    "screenshots": []
+  },
+  "skills": "./skills/"
+}

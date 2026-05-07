@@ -1,0 +1,47 @@
+{
+  "name": "fuse-nextjs",
+  "version": "1.1.16",
+  "description": "Expert Next.js 16 + React 19 with App Router, Server Components, Prisma 7, and Better Auth",
+  "author": {
+    "name": "Fusengine",
+    "email": "hello@fusengine.ch",
+    "url": "https://github.com/fusengine"
+  },
+  "homepage": "https://github.com/fusengine/agents",
+  "repository": "https://github.com/fusengine/agents",
+  "license": "MIT",
+  "keywords": [
+    "nextjs",
+    "react",
+    "prisma",
+    "better-auth",
+    "app-router",
+    "server-components"
+  ],
+  "interface": {
+    "displayName": "Nextjs",
+    "shortDescription": "Expert Next.js 16 + React 19 with App Router, Server Components, Prisma 7, and Better Auth",
+    "longDescription": "Expert Next.js 16 + React 19 with App Router, Server Components, Prisma 7, and Better Auth",
+    "developerName": "Fusengine",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fusengine/agents",
+    "privacyPolicyURL": "",
+    "termsOfServiceURL": "",
+    "defaultPrompt": [
+      "Use Nextjs.",
+      "Review with Nextjs.",
+      "Apply Nextjs guidance."
+    ],
+    "brandColor": "#3B82F6",
+    "composerIcon": "",
+    "logo": "",
+    "screenshots": []
+  },
+  "skills": "./skills/",
+  "hooks": "./hooks.json"
+}

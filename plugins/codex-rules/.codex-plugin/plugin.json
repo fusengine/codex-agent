@@ -1,0 +1,38 @@
+{
+  "name": "fuse-rules",
+  "version": "1.0.6",
+  "description": "Global rules for all Codex sessions: APEX workflow, SOLID/DRY enforcement, project detection, agent delegation, frontend/git standards",
+  "author": {
+    "name": "Fusengine",
+    "url": "https://github.com/fusengine"
+  },
+  "homepage": "https://github.com/fusengine/agents",
+  "repository": "https://github.com/fusengine/agents",
+  "license": "MIT",
+  "keywords": [],
+  "interface": {
+    "displayName": "Rules",
+    "shortDescription": "Global rules for all Codex sessions: APEX workflow, SOLID/DRY enforcement, project detection, agent delegation, frontend/git sta",
+    "longDescription": "Global rules for all Codex sessions: APEX workflow, SOLID/DRY enforcement, project detection, agent delegation, frontend/git standards",
+    "developerName": "Fusengine",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fusengine/agents",
+    "privacyPolicyURL": "",
+    "termsOfServiceURL": "",
+    "defaultPrompt": [
+      "Use Rules.",
+      "Review with Rules.",
+      "Apply Rules guidance."
+    ],
+    "brandColor": "#3B82F6",
+    "composerIcon": "",
+    "logo": "",
+    "screenshots": []
+  },
+  "hooks": "./hooks.json"
+}

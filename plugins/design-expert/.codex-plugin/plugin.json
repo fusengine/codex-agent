@@ -1,0 +1,58 @@
+{
+  "name": "fuse-design",
+  "version": "2.1.23",
+  "description": "Design Director for complete apps, sites, and SaaS. Multi-stack support (React/shadcn, Laravel/Livewire Flux, Swift/SwiftUI). Identity System, page layouts, motion system, palette generator, design audit. Anti-AI-Slop, WCAG 2.2, Gemini Design MCP.",
+  "author": {
+    "name": "Fusengine",
+    "email": "hello@fusengine.ch",
+    "url": "https://github.com/fusengine"
+  },
+  "homepage": "https://github.com/fusengine/agents",
+  "repository": "https://github.com/fusengine/agents",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "ui-ux",
+    "design-director",
+    "identity-system",
+    "multi-stack",
+    "react",
+    "nextjs",
+    "laravel",
+    "swift",
+    "tailwind",
+    "shadcn",
+    "accessibility",
+    "wcag",
+    "framer-motion",
+    "oklch",
+    "page-layouts",
+    "audit-design"
+  ],
+  "interface": {
+    "displayName": "Design",
+    "shortDescription": "Design Director for complete apps, sites, and SaaS. Multi-stack support (React/shadcn, Laravel/Livewire Flux, Swift/SwiftUI). Id",
+    "longDescription": "Design Director for complete apps, sites, and SaaS. Multi-stack support (React/shadcn, Laravel/Livewire Flux, Swift/SwiftUI). Identity System, page layouts, motion system, palette generator, design audit. Anti-AI-Slop, WCAG 2.2, Gemini Design MCP.",
+    "developerName": "Fusengine",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fusengine/agents",
+    "privacyPolicyURL": "",
+    "termsOfServiceURL": "",
+    "defaultPrompt": [
+      "Use Design.",
+      "Review with Design.",
+      "Apply Design guidance."
+    ],
+    "brandColor": "#3B82F6",
+    "composerIcon": "",
+    "logo": "",
+    "screenshots": []
+  },
+  "skills": "./skills/",
+  "hooks": "./hooks.json"
+}

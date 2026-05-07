@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "_description": "Generate ecosystem map from all installed plugins",
+        "matcher": "",
+        "hooks": [
+          {
+            "_description": "Run generate_map.py (plugins) + generate_project_map.py (project)",
+            "type": "command",
+            "command": "python3 ./scripts/generate_map.py ./.. ./../.cartographer || true; python3 ./scripts/generate_project_map.py || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_description": "Track enriched descriptions in .enriched.json sidecar",
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "_description": "Save descriptions from edited index.md to .enriched.json",
+            "type": "command",
+            "command": "python3 ./scripts/track-enrichment.py || true"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "fuse-laravel",
+  "version": "1.1.14",
+  "description": "Expert Laravel 12 + PHP 8.5 with SOLID principles, Eloquent, Livewire, and comprehensive documentation",
+  "author": {
+    "name": "Fusengine",
+    "email": "hello@fusengine.ch",
+    "url": "https://github.com/fusengine"
+  },
+  "homepage": "https://github.com/fusengine/agents",
+  "repository": "https://github.com/fusengine/agents",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "php",
+    "eloquent",
+    "livewire",
+    "blade",
+    "solid"
+  ],
+  "interface": {
+    "displayName": "Laravel",
+    "shortDescription": "Expert Laravel 12 + PHP 8.5 with SOLID principles, Eloquent, Livewire, and comprehensive documentation",
+    "longDescription": "Expert Laravel 12 + PHP 8.5 with SOLID principles, Eloquent, Livewire, and comprehensive documentation",
+    "developerName": "Fusengine",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fusengine/agents",
+    "privacyPolicyURL": "",
+    "termsOfServiceURL": "",
+    "defaultPrompt": [
+      "Use Laravel.",
+      "Review with Laravel.",
+      "Apply Laravel guidance."
+    ],
+    "brandColor": "#3B82F6",
+    "composerIcon": "",
+    "logo": "",
+    "screenshots": []
+  },
+  "skills": "./skills/",
+  "hooks": "./hooks.json"
+}

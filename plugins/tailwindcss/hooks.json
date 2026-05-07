@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "_description": "Block Tailwind edits if skill not consulted",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/check-tailwind-skill.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_description": "Validate Tailwind best practices after Write/Edit",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/validate-tailwind.py"
+          }
+        ]
+      },
+      {
+        "_description": "Track MCP research calls",
+        "matcher": "mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-mcp-research.py"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "_description": "Block React edits if skill not consulted",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/check-skill-loaded.py"
+          }
+        ]
+      },
+      {
+        "_description": "Validate React SOLID principles before Write/Edit",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/validate-react-solid.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_description": "Track MCP research calls",
+        "matcher": "mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-mcp-research.py"
+          }
+        ]
+      }
+    ]
+  }
+}

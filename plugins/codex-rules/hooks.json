@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "_description": "Inject all rules into session context at startup",
+        "matcher": "",
+        "hooks": [
+          {
+            "_description": "Load and inject rules/*.md into additionalContext",
+            "type": "command",
+            "command": "python3 ./scripts/inject-rules.py ."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "_description": "Re-inject rules at every user prompt for persistent context",
+        "matcher": "",
+        "hooks": [
+          {
+            "_description": "Reload rules/*.md into additionalContext on each prompt",
+            "type": "command",
+            "command": "python3 ./scripts/inject-rules.py ."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "fuse-changelog",
+  "version": "1.0.7",
+  "description": "Codex update watcher: changelog tracking, breaking changes detection, community pulse via Exa, plugin compatibility analysis",
+  "author": {
+    "name": "Fusengine",
+    "email": "hello@fusengine.ch",
+    "url": "https://github.com/fusengine"
+  },
+  "homepage": "https://github.com/fusengine/agents",
+  "repository": "https://github.com/fusengine/agents",
+  "license": "MIT",
+  "keywords": [
+    "changelog",
+    "updates",
+    "breaking-changes",
+    "community",
+    "pulse",
+    "watcher"
+  ],
+  "interface": {
+    "displayName": "Changelog",
+    "shortDescription": "Codex update watcher: changelog tracking, breaking changes detection, community pulse via Exa, plugin compatibility analysis",
+    "longDescription": "Codex update watcher: changelog tracking, breaking changes detection, community pulse via Exa, plugin compatibility analysis",
+    "developerName": "Fusengine",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fusengine/agents",
+    "privacyPolicyURL": "",
+    "termsOfServiceURL": "",
+    "defaultPrompt": [
+      "Use Changelog.",
+      "Review with Changelog.",
+      "Apply Changelog guidance."
+    ],
+    "brandColor": "#3B82F6",
+    "composerIcon": "",
+    "logo": "",
+    "screenshots": []
+  },
+  "skills": "./skills/",
+  "hooks": "./hooks.json"
+}

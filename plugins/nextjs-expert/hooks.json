@@ -1,0 +1,58 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "_description": "Block Next.js edits if skill not consulted",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/check-nextjs-skill.py"
+          }
+        ]
+      },
+      {
+        "_description": "Validate Next.js SOLID principles before Write/Edit",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/validate-nextjs-solid.py"
+          }
+        ]
+      },
+      {
+        "_description": "Enforce modular architecture (modules/)",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/validate-nextjs-modular.py"
+          }
+        ]
+      },
+      {
+        "_description": "DRY duplication scanner",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/detect-duplication.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_description": "Track MCP research calls",
+        "matcher": "mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-mcp-research.py"
+          }
+        ]
+      }
+    ]
+  }
+}

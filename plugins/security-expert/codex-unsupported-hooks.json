@@ -1,0 +1,16 @@
+{
+  "description": "Original hook events without a direct Codex hook equivalent.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-skill-read.py"
+          }
+        ]
+      }
+    ]
+  }
+}

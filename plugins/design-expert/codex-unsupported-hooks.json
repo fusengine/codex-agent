@@ -1,0 +1,61 @@
+{
+  "description": "Original hook events without a direct Codex hook equivalent.",
+  "hooks": {
+    "SubagentStart": [
+      {
+        "_description": "Set flag when design-expert agent starts",
+        "matcher": "design",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/design-agent-flag.py"
+          }
+        ]
+      },
+      {
+        "_description": "Initialize design state tracking file",
+        "matcher": "design",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/design-state-init.py"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "_description": "Clear flag when design-expert agent stops",
+        "matcher": "design",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/design-agent-flag.py"
+          }
+        ]
+      },
+      {
+        "_description": "Archive state file and clean old ones",
+        "matcher": "design",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/design-state-cleanup.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_description": "Track skill file reads",
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-skill-read.py"
+          }
+        ]
+      }
+    ]
+  }
+}

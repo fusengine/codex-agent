@@ -1,0 +1,118 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "_description": "Block agent from modifying pipeline state files",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/guard-state-files.py"
+          }
+        ]
+      },
+      {
+        "_description": "Design-expert can only write HTML/CSS/MD/JSON files",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/enforce-html-css-only.py"
+          }
+        ]
+      },
+      {
+        "_description": "Block UI edits if design skill not consulted",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/check-design-skill.py"
+          }
+        ]
+      },
+      {
+        "_description": "Pipeline gate: enforce phase ordering for Write/Edit",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/pipeline-gate.py"
+          }
+        ]
+      },
+      {
+        "_description": "Block Playwright browsing before reading design-inspiration.md",
+        "matcher": "mcp__playwright__browser_navigate",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/check-inspiration-read.py"
+          }
+        ]
+      },
+      {
+        "_description": "Block screenshot without scrolling first (lazy loading)",
+        "matcher": "mcp__playwright__browser_take_screenshot",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/require-scroll-before-screenshot.py"
+          }
+        ]
+      },
+      {
+        "_description": "Pipeline gate: enforce phase ordering for Gemini",
+        "matcher": "mcp__gemini-design__",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/pipeline-gate.py"
+          }
+        ]
+      },
+      {
+        "_description": "Block create_frontend if design-system.md is generic or missing",
+        "matcher": "mcp__gemini-design__create_frontend",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/validate-design-system.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_description": "Update state after each Playwright screenshot",
+        "matcher": "mcp__playwright__browser_take_screenshot",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-screenshot.py"
+          }
+        ]
+      },
+      {
+        "_description": "Track MCP research + Playwright calls",
+        "matcher": "mcp__context7__|mcp__exa__|mcp__magic__|mcp__shadcn__|mcp__playwright__|mcp__gemini-design__",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-mcp-research.py"
+          }
+        ]
+      },
+      {
+        "_description": "Validate design best practices after Write/Edit",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/validate-design.py"
+          }
+        ]
+      }
+    ]
+  }
+}

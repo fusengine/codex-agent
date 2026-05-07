@@ -1,0 +1,123 @@
+{
+  "description": "Original hook events without a direct Codex hook equivalent.",
+  "hooks": {
+    "SubagentStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/inject-subagent-context.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "explore-codebase",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/explore-cache-check.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "research-expert",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/doc-cache-inject.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/lessons-cache-inject.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "sniper",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/test-cache-inject.ts"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "sniper",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/cache-sniper-lessons.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "sniper",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/cache-test-results.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "research-expert",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/cache-doc-from-transcript.ts"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/check-solid-from-transcript.py"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/cache-analytics-save.ts"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/inject-apex-context.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "TaskCreate|TaskUpdate",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/sync-task-tracking.ts"
+          }
+        ]
+      }
+    ]
+  }
+}

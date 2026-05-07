@@ -1,0 +1,46 @@
+{
+  "name": "fuse-cartographer",
+  "version": "1.0.6",
+  "description": "Generates indented markdown maps of the plugin ecosystem for agent navigation",
+  "author": {
+    "name": "Fusengine",
+    "email": "hello@fusengine.ch",
+    "url": "https://github.com/fusengine"
+  },
+  "homepage": "https://github.com/fusengine/agents",
+  "repository": "https://github.com/fusengine/agents",
+  "license": "MIT",
+  "keywords": [
+    "cartographer",
+    "map",
+    "ecosystem",
+    "navigation",
+    "plugins"
+  ],
+  "interface": {
+    "displayName": "Cartographer",
+    "shortDescription": "Generates indented markdown maps of the plugin ecosystem for agent navigation",
+    "longDescription": "Generates indented markdown maps of the plugin ecosystem for agent navigation",
+    "developerName": "Fusengine",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/fusengine/agents",
+    "privacyPolicyURL": "",
+    "termsOfServiceURL": "",
+    "defaultPrompt": [
+      "Use Cartographer.",
+      "Review with Cartographer.",
+      "Apply Cartographer guidance."
+    ],
+    "brandColor": "#3B82F6",
+    "composerIcon": "",
+    "logo": "",
+    "screenshots": []
+  },
+  "skills": "./skills/",
+  "hooks": "./hooks.json"
+}

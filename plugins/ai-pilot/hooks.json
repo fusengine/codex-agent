@@ -1,0 +1,55 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/detect-and-inject-apex.ts"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/detect-bash-write.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun ./scripts/enforce-apex-phases.ts"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/check-solid-compliance.py"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__.*context7|mcp__.*exa",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-doc-consultation.py"
+          }
+        ]
+      }
+    ]
+  }
+}

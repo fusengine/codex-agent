@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "mcp__.*exa",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-watch-research.py"
+          }
+        ]
+      }
+    ]
+  }
+}

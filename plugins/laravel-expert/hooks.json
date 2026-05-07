@@ -1,0 +1,58 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "_description": "Block Laravel edits if skill not consulted",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/check-laravel-skill.py"
+          }
+        ]
+      },
+      {
+        "_description": "Validate Laravel SOLID principles before Write/Edit",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/validate-laravel-solid.py"
+          }
+        ]
+      },
+      {
+        "_description": "Enforce FuseCore modular architecture",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/validate-fusecore.py"
+          }
+        ]
+      },
+      {
+        "_description": "DRY duplication scanner",
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/detect-duplication.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_description": "Track MCP research calls",
+        "matcher": "mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/track-mcp-research.py"
+          }
+        ]
+      }
+    ]
+  }
+}
