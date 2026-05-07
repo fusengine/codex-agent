@@ -4,15 +4,15 @@
 
 | Version | Supported |
 |---------|-----------|
-| 1.36.x  | Yes       |
-| < 1.36  | No        |
+| 1.0.x   | Yes       |
+| < 1.0   | No        |
 
 ## Reporting a Vulnerability
 
 If you discover a security vulnerability, please report it responsibly:
 
 1. **Do NOT open a public issue**
-2. Use [GitHub Private Vulnerability Reporting](https://github.com/fusengine/agents/security/advisories/new)
+2. Use [GitHub Private Vulnerability Reporting](https://github.com/fusengine/codex-agent/security/advisories/new)
 3. Or email: security@fusengine.ch
 
 ### What to include
@@ -48,7 +48,9 @@ If you discover a security vulnerability, please report it responsibly:
 
 This project enforces security through hooks:
 
-- **git-guard.sh** - Blocks destructive git commands (force push, reset --hard)
-- **security-guard.sh** - Validates dangerous shell commands
-- **install-guard.sh** - Confirms before package installations
+- **git-guard.py** - Blocks destructive git commands (force push, reset --hard)
+- **security-guard.py** - Validates dangerous shell commands
+- **install-guard.py** - Confirms before package installations
+- **codexignore-guard.py** - Blocks edits on `.codexignore`-matched files (`.env`, `secrets/`, `*.key`)
+- **bash-write-guard.py** - Blocks shell-based file writes (forces Edit/Write tools)
 - **Secret scanning** - Enabled on GitHub to detect leaked credentials

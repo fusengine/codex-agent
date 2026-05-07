@@ -1,6 +1,6 @@
 # Fusengine Codex Plugins
 
-![version](https://img.shields.io/badge/version-v1.38.74-blue?style=flat-square) ![plugins](https://img.shields.io/badge/plugins-18-brightgreen?style=flat-square) ![agents](https://img.shields.io/badge/agents-19-blueviolet?style=flat-square) ![skills](https://img.shields.io/badge/skills-125-orange?style=flat-square) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square) ![platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey?style=flat-square) ![Windows](https://img.shields.io/badge/Windows-soon-orange?style=flat-square)
+![version](https://img.shields.io/badge/version-v1.0.0-blue?style=flat-square) ![plugins](https://img.shields.io/badge/plugins-17-brightgreen?style=flat-square) ![agents](https://img.shields.io/badge/agents-21-blueviolet?style=flat-square) ![skills](https://img.shields.io/badge/skills-131-orange?style=flat-square) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square) ![platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat-square) ![Codex CLI](https://img.shields.io/badge/Codex_CLI-0.128%2B-black?style=flat-square)
 
 > A plugin ecosystem that turns Codex into a supervised, multi-agent development environment. Expert agents write code, hooks enforce quality in real-time, skills inject framework-specific knowledge, and **intelligent cartography auto-maps plugins and projects** — so Codex never guesses, never duplicates, and always follows your architecture.
 
@@ -13,8 +13,8 @@
 **With Fusengine plugins:**
 
 - **Expert agents** detect your project type (Next.js, Laravel, React, Astro, Swift...) and load framework-specific documentation via MCP servers before writing a single line
-- **82 hooks** intercept every Write/Edit/Bash call in real-time to enforce file size limits (<100 lines), block code duplication (DRY), require SOLID references, and validate security
-- **125 skills** inject copy-paste-ready templates, architecture patterns, and best practices directly into agent context — no hallucination needed
+- **148 hooks** intercept every Write/Edit/Bash/MCP call in real-time to enforce file size limits (<100 lines), block code duplication (DRY), require SOLID references, and validate security
+- **131 skills** inject copy-paste-ready templates, architecture patterns, and best practices directly into agent context — no hallucination needed
 - **APEX workflow** structures every task through Analyze → Plan → Execute (TDD) → Review → Validate — preventing the "just write code and hope" approach
 - **Sniper validation** runs a 7-phase quality check after every modification: explore → research → grep usages → lint → fix → zero errors
 
