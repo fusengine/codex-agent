@@ -1,5 +1,23 @@
 # Release Notes
 
+## [1.0.5] - 10-05-2026
+
+### Fixed
+
+- fix(setup): make Codex env self-contained from Claude shell init
+  - When fish/zsh init sources `~/.claude/.env`, API keys land in
+    `process.env` before setup.sh runs. The previous flow detected them
+    via shell env and skipped the prompt, but never persisted them to
+    `~/.codex/.env` — removing `~/.claude` broke Codex.
+  - New `syncShellEnvToCodexFile()` in `mcp-key-prompt.ts`:
+    persists `process.env` keys to `~/.codex/.env` (does NOT overwrite
+    existing entries — file is the source of truth once populated).
+  - `saveEnvFile()` now writes with mode `0o600` (owner-only) per
+    12-Factor secrets pattern.
+  - `envFilePath()` lazy resolution (replaces `ENV_FILE` const) to
+    honor `CODEX_HOME` overrides — enables clean test isolation.
+- 3 new tests covering sync, no-overwrite, and 0o600 mode (128/128).
+
 ## [1.0.4] - 10-05-2026
 
 ### Changed
