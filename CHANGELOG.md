@@ -1,5 +1,18 @@
 # Release Notes
 
+## [1.0.1] - 10-05-2026
+
+### Fixed
+
+- fix(codex): align [features] block with Codex 0.130 audit
+  - `personality` no longer written top-level (silently ignored — moved to `[features]` boolean)
+  - `undo` (GhostCommit retired) and `steer` (default behavior since 0.129+) no longer written
+  - `codex_hooks` renamed to canonical `hooks` (PR openai/codex#20522, legacy alias preserved)
+  - `plugin_hooks` removed (UnderDevelopment, unrelated to marketplace hooks)
+  - UnderDevelopment flags (chronicle, enable_fanout, child_agents_md) no longer forced
+  - Added Stable QoL flags: multi_agent, fast_mode, shell_snapshot, enable_request_compression, skill_mcp_dependency_install
+  - HTML exemption from SOLID enforcement clarified (design previews legitimately exceed 100 lines)
+
 ## [1.0.0] - 07-05-2026
 
 Initial release of `fusengine/codex-agent` — a multi-agent plugin marketplace for OpenAI Codex CLI 0.128+.
