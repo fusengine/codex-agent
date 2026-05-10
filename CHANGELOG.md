@@ -1,5 +1,28 @@
 # Release Notes
 
+## [1.0.3] - 10-05-2026
+
+### Added
+
+- feat(codex): Codex 0.130 ULTRA compliance overhaul
+  - Token-economy model mapping (Anthropic → Codex): opus → gpt-5.4, sonnet → gpt-5.4-mini, haiku → gpt-5.3-codex-spark
+  - Per-agent MCP scoping: research-expert (context7+exa), design-expert (gemini-design+magic), websearch (exa)
+  - New service `codex-agents-config.ts`: writes `[agents] max_threads=6 max_depth=2 job_max_runtime_seconds=1800`
+  - New `trustAllHooks` opt-in prompt (default false, warning) → `approval_mode = "approve"` top-level when enabled
+  - 7 new tests (123 → 125 total)
+
+### Changed
+
+- Subagent TOML filename: `<plugin-slug>-<agent>.toml` (no more `fusengine-` prefix), matches Codex doc convention
+- `developer_instructions` now uses repo-relative paths (no machine path leak)
+- All 131 SKILL.md frontmatter strict-compliant: `name` + `description` only (~410 non-standard fields removed across 129 files)
+
+### Documentation
+
+- New section "Trusting hooks (Codex 0.129+)" in installation.md (`/hooks` TUI flow + opt-in `approval_mode`)
+- Sprint 2 section in CODEX_MIGRATION.md with full audit details
+- README Key Features: Codex 0.130 compliant row
+
 ## [1.0.2] - 10-05-2026
 
 ### Documentation
