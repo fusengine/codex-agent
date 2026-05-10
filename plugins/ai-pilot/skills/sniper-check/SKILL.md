@@ -1,10 +1,6 @@
 ---
 name: sniper-check
 description: Use when validating code quality after modifications. Runs sniper agent in isolated forked context for clean, fast validation.
-context: fork
-agent: fuse-ai-pilot:sniper
-user-invocable: true
-argument-hint: "[file-or-directory]"
 ---
 
 **Target:** $ARGUMENTS

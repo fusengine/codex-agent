@@ -1,7 +1,6 @@
 ---
 name: agent-design
 description: Design AI agents with recommended patterns and architectures
-allowed-tools: Read, Write
 ---
 
 # Agent Design

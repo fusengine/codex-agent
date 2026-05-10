@@ -1,7 +1,6 @@
 ---
 name: adding-animations
-description: "Phase 4: Add Framer Motion scroll reveals (IntersectionObserver), hover scale/opacity transitions, focus ring states, loading skeletons, glassmorphism blur layers, gradient orb backgrounds — all via modify_frontend."
-phase: 4
+description: 'Phase 4: Add Framer Motion scroll reveals (IntersectionObserver), hover scale/opacity transitions, focus ring states, loading skeletons, glassmorphism blur layers, gradient orb backgrounds — all via modify_frontend.'
 ---
 
 ## Phase 4: ADDING ANIMATIONS — Motion, states, and visual effects

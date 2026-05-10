@@ -1,13 +1,6 @@
 ---
 name: laravel-queues
 description: Implement background jobs with queues, workers, batches, chains, middleware, and failure handling. Use when processing async tasks or handling long-running operations.
-versions:
-  laravel: "12.46"
-  horizon: "5.43"
-  php: "8.5"
-user-invocable: false
-references: references/jobs.md, references/dispatching.md, references/workers.md, references/batching.md, references/chaining.md, references/middleware.md, references/failed-jobs.md, references/horizon.md, references/testing.md, references/troubleshooting.md, references/templates/QueueableJob.php.md, references/templates/BatchJob.php.md, references/templates/ChainedJobs.php.md, references/templates/JobMiddleware.php.md, references/templates/JobTest.php.md
-related-skills: laravel-architecture, laravel-eloquent
 ---
 
 # Laravel Queues

@@ -1,7 +1,6 @@
 ---
 name: generating-components
-description: "Phase 3: Map design-system.md to 7 Gemini XML blocks (aesthetics, style_reference, typography, color_system, spacing, states, forbidden), call create_frontend, add component variants (Glass/Outline/Flat via CVA)."
-phase: 3
+description: 'Phase 3: Map design-system.md to 7 Gemini XML blocks (aesthetics, style_reference, typography, color_system, spacing, states, forbidden), call create_frontend, add component variants (Glass/Outline/Flat via CVA).'
 ---
 
 ## Phase 3: GENERATING COMPONENTS — Build UI with Gemini Design

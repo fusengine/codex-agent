@@ -1,13 +1,6 @@
 ---
 name: laravel-livewire
 description: Livewire 3 reactive components - wire:model, actions, events, Volt, Folio. Use when building reactive UI without JavaScript.
-versions:
-  laravel: "12.x"
-  livewire: "3.x"
-  php: "8.4"
-user-invocable: true
-references: references/components.md, references/wire-directives.md, references/lifecycle.md, references/forms-validation.md, references/events.md, references/alpine-integration.md, references/file-uploads.md, references/nesting.md, references/loading-states.md, references/navigation.md, references/testing.md, references/security.md, references/volt.md, references/folio.md, references/precognition.md, references/reverb.md, references/templates/BasicComponent.php.md, references/templates/FormComponent.php.md, references/templates/VoltComponent.blade.md, references/templates/DataTableComponent.php.md, references/templates/FileUploadComponent.php.md, references/templates/NestedComponents.php.md, references/templates/ComponentTest.php.md
-related-skills: laravel-blade, laravel-testing, laravel-api
 ---
 
 # Laravel Livewire

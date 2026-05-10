@@ -1,7 +1,6 @@
 ---
 name: tailwindcss-v4
 description: Tailwind CSS v4.1 core features, @theme, directives, migration guide
-user-invocable: false
 ---
 
 # Tailwind CSS v4.1 Core

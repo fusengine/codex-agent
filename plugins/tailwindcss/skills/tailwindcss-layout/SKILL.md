@@ -1,7 +1,6 @@
 ---
 name: tailwindcss-layout
-description: "Layout utilities Tailwind CSS v4.1. Flexbox (flex, justify, items, gap), Grid (grid-cols, grid-rows, place), Position (absolute, relative, fixed, sticky, inset, z-index), Container queries (@container)."
-user-invocable: false
+description: Layout utilities Tailwind CSS v4.1. Flexbox (flex, justify, items, gap), Grid (grid-cols, grid-rows, place), Position (absolute, relative, fixed, sticky, inset, z-index), Container queries (@container).
 ---
 
 # Tailwind CSS Layout Utilities (v4.1)

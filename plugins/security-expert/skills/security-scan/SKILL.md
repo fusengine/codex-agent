@@ -1,8 +1,6 @@
 ---
 name: security-scan
 description: Main security scanning orchestration. Detects language, runs OWASP Top 10 patterns, identifies vulnerabilities, generates structured reports. Use when scanning for XSS, SQL injection, command injection, secrets, or any security vulnerability.
-argument-hint: "[--full] [path]"
-user-invocable: true
 ---
 
 # Security Scan Skill

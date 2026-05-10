@@ -47,6 +47,38 @@ This installs:
 - **MCP servers** (interactive selection of 27 servers)
 - **Codex feature flags** (audit 0.130) — defaults non-interactifs : `hooks`, `tool_search`, `personality`, `multi_agent`, `fast_mode`, `shell_snapshot`, `enable_request_compression`, `skill_mcp_dependency_install`, `memories`, `goals` (= `true`). Removed (no-op) : `undo`, `steer`. UnderDevelopment laissés aux défauts Codex : `chronicle`, `enable_fanout`, `child_agents_md`, `plugin_hooks`. + 6 prompts interactifs : `memories`, `apps`, `approval_policy`, `sandbox_mode`, `web_search`, `model_reasoning_effort`
 
+## Trusting hooks (Codex 0.129+)
+
+Depuis Codex 0.129, les hooks installés par un plugin sont soumis à un **trust gate** : chaque hook doit être approuvé individuellement avant d'être exécuté. À la première exécution après installation, Codex affiche les hooks fusengine et attend une décision utilisateur.
+
+### Recommandé — review per-hook via `/hooks` (TUI)
+
+1. Lance Codex (`codex`).
+2. Ouvre la TUI des hooks :
+
+   ```
+   /hooks
+   ```
+
+3. Codex liste chaque hook avec son chemin absolu, son matcher (`Bash`, `Write|Edit`, `mcp__*`, etc.) et l'événement (`PreToolUse`, `PostToolUse`, `SessionStart`, `Stop`, `UserPromptSubmit`, `PermissionRequest`).
+4. Inspecte le script avant d'approuver — chaque hook fusengine vit dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/scripts/`.
+5. Approuve hook par hook. Le choix est mémorisé.
+
+Cette approche per-hook est la voie supportée par OpenAI : le trust gate n'a actuellement pas de mécanisme de pre-trust applicable à un bundle d'équipe (cf. [openai/codex#21639](https://github.com/openai/codex/issues/21639)).
+
+### Opt-in — `approval_mode = "approve"` (à éviter par défaut)
+
+Pour les environnements où la review per-hook n'est pas tenable (CI, machines partagées en lab), `setup.sh` propose un prompt :
+
+> Bypass per-hook security review via `approval_mode=approve`?
+> WARNING RISKY: this disables Codex's per-hook trust gate for **ALL** hooks (not just fusengine).
+> Recommended: review hooks individually via `/hooks` in Codex TUI.
+> Default: **No**
+
+Choisir **Yes** écrit `approval_mode = "approve"` au top-level de `~/.codex/config.toml`. Ce flag désactive le trust gate pour **tous** les hooks de la machine, fusengine et tiers compris. À n'activer qu'en pleine connaissance des hooks installés.
+
+Voir : [developers.openai.com/codex/plugins/build](https://developers.openai.com/codex/plugins/build).
+
 ## 4. MCP Server Selection
 
 During setup, you'll see an interactive MCP server selector:

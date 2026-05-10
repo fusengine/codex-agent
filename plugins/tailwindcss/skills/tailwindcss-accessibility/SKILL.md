@@ -1,9 +1,6 @@
 ---
 name: tailwindcss-accessibility
-description: "Tailwind CSS v4.1 accessibility utilities. focus-visible, sr-only, reduced-motion, WCAG enforcement, touch targets, contrast ratios."
-user-invocable: true
-references: references/focus-patterns.md, references/wcag-utilities.md
-related-skills: tailwindcss-core, react-shadcn
+description: Tailwind CSS v4.1 accessibility utilities. focus-visible, sr-only, reduced-motion, WCAG enforcement, touch targets, contrast ratios.
 ---
 
 # Tailwind CSS Accessibility

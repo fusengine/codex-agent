@@ -1,10 +1,6 @@
 ---
 name: brainstorming
 description: Use when user requests creative work - creating features, building components, adding functionality, or modifying behavior. Activates BEFORE APEX Analyze phase to refine requirements through structured questioning.
-user-invocable: true
-references: references/workflow.md, references/anti-patterns.md
-related-skills: apex, research, exploration
-argument-hint: "[feature-or-task-description]"
 ---
 
 # Brainstorming Skill

@@ -1,12 +1,6 @@
 ---
 name: solid-ruby
 description: SOLID principles for Ruby 3.3+ and Rails 8. Files < 100 lines, contracts separated, modular architecture. Modules MANDATORY.
-versions:
-  ruby: "3.3"
-  rails: "8"
-user-invocable: true
-references: references/solid-principles.md, references/single-responsibility.md, references/open-closed.md, references/liskov-substitution.md, references/interface-segregation.md, references/dependency-inversion.md, references/architecture-patterns.md, references/templates/module.md, references/templates/service.md, references/templates/contract.md, references/templates/model.md, references/templates/error.md, references/templates/test.md
-related-skills: solid-detection
 ---
 
 # SOLID Ruby - Modular Architecture

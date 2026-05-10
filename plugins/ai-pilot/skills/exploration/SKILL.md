@@ -1,10 +1,6 @@
 ---
 name: exploration
 description: Codebase exploration techniques for rapid discovery, architecture analysis, pattern detection, and dependency mapping.
-argument-hint: "[directory] [--thorough]"
-context: fork
-agent: fuse-ai-pilot:explore-codebase
-user-invocable: false
 ---
 
 **Session:** ${CODEX_SESSION_ID}

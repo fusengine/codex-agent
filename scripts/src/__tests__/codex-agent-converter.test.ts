@@ -32,9 +32,24 @@ Use Context7 and Exa.
 
 		expect(agents).toHaveLength(1);
 		expect(agents[0].name).toBe("fuse_ai_pilot_research_expert");
-		expect(agents[0].fileName).toBe("fusengine-fuse-ai-pilot-research-expert.toml");
+		expect(agents[0].fileName).toBe("fuse-ai-pilot-research-expert.toml");
 		expect(agents[0].toml).toContain('sandbox_mode = "read-only"');
 		expect(agents[0].toml).toContain('developer_instructions = """');
+		expect(agents[0].toml).toContain('model = "gpt-5.4-mini"');
+		expect(agents[0].toml).toContain("[mcp_servers.context7]");
+		expect(agents[0].toml).toContain("[mcp_servers.exa]");
+		expect(agents[0].toml).toContain("Source agent: ai-pilot/agents/research-expert.md");
+	});
+
+	test("throws on empty body", () => {
+		writeAgent("ai-pilot", "empty.md", `---\nname: empty\n---\n\n`);
+		expect(() => convertPluginAgents(join(TEST_DIR, "marketplace/plugins"))).toThrow(/Empty body/);
+	});
+
+	test("omits model field when alias missing or unknown", () => {
+		writeAgent("ai-pilot", "no-model.md", `---\nname: no-model\n---\n\n# Body\n`);
+		const agents = convertPluginAgents(join(TEST_DIR, "marketplace/plugins"));
+		expect(agents[0].toml).not.toMatch(/^model = /m);
 	});
 
 	test("installs generated agents under CODEX_HOME agents directory", () => {
@@ -53,9 +68,10 @@ model: opus
 			marketplaceRoot: join(TEST_DIR, "marketplace"),
 		});
 
-		const file = join(TEST_DIR, "home/.codex/agents/fusengine-fuse-nextjs-nextjs-expert.toml");
+		const file = join(TEST_DIR, "home/.codex/agents/fuse-nextjs-nextjs-expert.toml");
 		const content = readFileSync(file, "utf8");
 		expect(content).toContain('name = "fuse_nextjs_nextjs_expert"');
 		expect(content).toContain('model_reasoning_effort = "high"');
+		expect(content).toContain('model = "gpt-5.4"');
 	});
 });

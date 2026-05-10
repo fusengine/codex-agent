@@ -1,13 +1,6 @@
 ---
 name: shadcn-registries
 description: Configure shadcn/ui registries, components.json, and CLI commands. Covers default Radix registry, Base UI registry, and custom registries.
-versions:
-  shadcn-ui: "2.x"
-  shadcn-cli: "latest"
-user-invocable: true
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep, mcp__shadcn__search_items_in_registries, mcp__shadcn__view_items_in_registries, mcp__shadcn__get_add_command_for_items
-references: references/registry-config.md, references/templates/registry-setup.md
-related-skills: shadcn-components, shadcn-detection
 ---
 
 # shadcn Registries

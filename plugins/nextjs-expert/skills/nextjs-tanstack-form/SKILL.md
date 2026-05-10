@@ -1,14 +1,6 @@
 ---
 name: nextjs-tanstack-form
 description: TanStack Form v1 for Next.js 16 with Server Actions, Zod validation, and shadcn/ui integration. Use when building forms, validation, multi-step wizards, or dynamic field arrays.
-versions:
-  tanstack-form: 1.0
-  nextjs: 16
-  react: 19
-  zod: 3.24
-user-invocable: true
-references: references/installation.md, references/basic-usage.md, references/field-api.md, references/form-state.md, references/validation-zod.md, references/server-actions.md, references/array-fields.md, references/async-validation.md, references/shadcn-integration.md, references/typescript.md, references/multi-step-form.md, references/performance.md, references/testing.md, references/migration-rhf.md
-related-skills: nextjs-16, nextjs-shadcn, solid-nextjs
 ---
 
 # TanStack Form for Next.js 16

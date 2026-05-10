@@ -1,14 +1,6 @@
 ---
 name: shadcn-components
 description: Component patterns for shadcn/ui with both Radix UI and Base UI primitives. Covers API differences, mapping between primitives, and correct usage patterns.
-versions:
-  shadcn-ui: "2.x"
-  radix-ui: "1.x"
-  base-ui: "1.x"
-user-invocable: true
-allowed-tools: Read, Write, Edit, Glob, Grep, Task, mcp__shadcn__search_items_in_registries, mcp__shadcn__view_items_in_registries, mcp__shadcn__get_item_examples_from_registries, mcp__shadcn__get_add_command_for_items
-references: references/radix-components.md, references/baseui-components.md, references/templates/dialog-example.md
-related-skills: shadcn-detection, shadcn-registries
 ---
 
 # shadcn Components

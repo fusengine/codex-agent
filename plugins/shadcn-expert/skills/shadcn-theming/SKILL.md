@@ -1,13 +1,6 @@
 ---
 name: shadcn-theming
 description: Design tokens and theming for shadcn/ui. Covers CSS variables, OKLCH colors, dark/light mode, and theme configuration for both Radix and Base UI primitives.
-versions:
-  shadcn-ui: "2.x"
-  tailwindcss: "4.1"
-user-invocable: true
-allowed-tools: Read, Write, Edit, Glob, Grep
-references: references/theming-guide.md, references/templates/theme-setup.md
-related-skills: shadcn-registries, shadcn-components
 ---
 
 # shadcn Theming

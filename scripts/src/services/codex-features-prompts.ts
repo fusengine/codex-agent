@@ -47,7 +47,11 @@ async function collectAnswers(): Promise<CodexFeatureAnswers> {
 		{ value: "medium", label: "medium" },
 		{ value: "low", label: "low (faster, shallower)" },
 	], "high");
-	return { memories, apps, approvalPolicy, sandboxMode, webSearch, reasoningEffort };
+	const trustAllHooks = await confirmOrSkip(
+		"Bypass per-hook security review via approval_mode=approve?\n  WARNING RISKY: this disables Codex's per-hook trust gate for ALL hooks (not just fusengine).\n  Recommended: review hooks individually via /hooks in Codex TUI.\n  Default: No",
+		false,
+	);
+	return { memories, apps, approvalPolicy, sandboxMode, webSearch, reasoningEffort, trustAllHooks };
 }
 
 /** Run the interactive prompt flow and persist answers to config.toml. */

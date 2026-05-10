@@ -1,8 +1,6 @@
 ---
 name: changelog-scan
 description: Scan Codex changelog for new versions, features, and changes. Fetches official docs, parses release notes, and generates structured update report.
-argument-hint: "[--since <version>]"
-user-invocable: true
 ---
 
 # Changelog Scan Skill

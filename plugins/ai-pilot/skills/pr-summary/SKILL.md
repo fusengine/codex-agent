@@ -1,11 +1,6 @@
 ---
 name: pr-summary
 description: Summarize current pull request with diff, comments, and changed files. Use when reviewing PRs or before merging.
-argument-hint: "[pr-number]"
-context: fork
-agent: fuse-ai-pilot:explore-codebase
-disable-model-invocation: false
-user-invocable: true
 ---
 
 # PR Summary Skill

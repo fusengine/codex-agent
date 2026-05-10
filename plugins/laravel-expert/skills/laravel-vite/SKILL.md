@@ -1,13 +1,6 @@
 ---
 name: laravel-vite
 description: Complete Vite bundling for Laravel - assets, HMR, SSR, frameworks, optimization. Use when configuring frontend build pipeline.
-versions:
-  laravel: "12.x"
-  vite: "6.x"
-  php: "8.4"
-user-invocable: true
-references: references/setup.md, references/entry-points.md, references/preprocessors.md, references/assets.md, references/environment.md, references/dev-server.md, references/build-optimization.md, references/ssr.md, references/inertia.md, references/frameworks.md, references/security.md, references/deployment.md, references/templates/ViteConfig.js.md, references/templates/ViteConfigAdvanced.js.md, references/templates/InertiaSetup.md, references/templates/SSRSetup.md
-related-skills: laravel-blade, laravel-livewire, fusecore
 ---
 
 # Laravel Vite

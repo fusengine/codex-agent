@@ -1,11 +1,6 @@
 ---
 name: skill-creator
 description: Use when creating new skills, restructuring existing skills, or improving skill documentation. Generates SKILL.md + references/ structure with proper patterns.
-versions:
-  codex-plugins: "1.35"
-user-invocable: true
-references: references/workflow.md, references/architecture.md, references/content-rules.md, references/registration.md, references/adaptation.md, references/templates/SKILL-template.md, references/templates/reference-template.md, references/templates/template-template.md
-related-skills: research, exploration
 ---
 
 # Skill Creator

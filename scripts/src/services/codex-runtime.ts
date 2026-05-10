@@ -4,6 +4,7 @@
  */
 import { dirname, join } from "node:path";
 import { installCodexAgents } from "./codex-agent-converter";
+import { installCodexAgentsConfig } from "./codex-agents-config";
 import {
 	enableMarketplacePlugins,
 	registerCodexMarketplace,
@@ -49,5 +50,6 @@ export function installCodexRuntime(paths: CodexRuntimePaths): void {
 	enableMarketplacePlugins(paths.configToml, paths.marketplaceRoot);
 	configureCodexStatusLine(paths.configToml);
 	installCodexAgents(paths);
+	installCodexAgentsConfig(paths.configToml);
 	writeCodexHooks(paths);
 }

@@ -1,11 +1,6 @@
 ---
 name: build-distribution
 description: App build, code signing, TestFlight, and App Store distribution for all Apple platforms. Use when preparing releases, configuring signing, uploading to TestFlight, or submitting to App Store.
-versions:
-  xcode: 26
-user-invocable: false
-references: references/code-signing.md, references/testflight.md, references/app-store.md, references/app-icons.md, references/storekit2.md
-related-skills: swift-core, ios, macos, mcp-tools
 ---
 
 # Build & Distribution

@@ -1,12 +1,6 @@
 ---
 name: nextjs-i18n
 description: Next.js 16 internationalization with next-intl or DIY. Use when implementing i18n, translations, localization, multilingual, language switch, locale routing, or formatters.
-versions:
-  next-intl: 4.0
-  nextjs: 16
-user-invocable: true
-references: references/installation.md, references/pages-router.md, references/routing-setup.md, references/routing-config.md, references/translations.md, references/formatting.md, references/navigation.md, references/server-components.md, references/client-components.md, references/middleware-proxy.md, references/error-files.md, references/configuration.md, references/plugin.md, references/extraction.md, references/messages-validation.md, references/typescript.md, references/testing.md, references/integrations.md, references/seo.md, references/core-library.md, references/runtime-requirements.md, references/diy-dictionaries.md, references/diy-locale-detection.md
-related-skills: nextjs-16, solid-nextjs
 ---
 
 # Next.js 16 Internationalization

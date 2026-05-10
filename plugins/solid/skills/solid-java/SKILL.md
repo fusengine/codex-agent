@@ -1,11 +1,6 @@
 ---
 name: solid-java
 description: SOLID principles for Java 21+. Files < 100 lines, interfaces separated, modular architecture. Modules MANDATORY.
-versions:
-  java: "21"
-user-invocable: true
-references: references/solid-principles.md, references/single-responsibility.md, references/open-closed.md, references/liskov-substitution.md, references/interface-segregation.md, references/dependency-inversion.md, references/architecture-patterns.md, references/templates/module.md, references/templates/service.md, references/templates/interface.md, references/templates/repository.md, references/templates/error.md, references/templates/test.md
-related-skills: solid-detection
 ---
 
 # SOLID Java - Modular Architecture

@@ -1,12 +1,6 @@
 ---
 name: macos
 description: macOS platform-specific development with menu bar apps, window management, AppKit integration, and notarization. Use when building Mac apps, creating menu bar extras, or distributing outside App Store.
-versions:
-  macos: 26
-  xcode: 26
-user-invocable: false
-references: references/app-structure.md, references/build-tools.md, references/appkit-integration.md, references/notarization.md
-related-skills: swift-core, swiftui-core, mcp-tools, build-distribution
 ---
 
 # macOS Platform

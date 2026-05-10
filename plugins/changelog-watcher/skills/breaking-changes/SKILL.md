@@ -1,8 +1,6 @@
 ---
 name: breaking-changes
 description: Detect breaking changes in Codex updates by comparing current API surface against changelog. Maps impacts to specific plugin files.
-argument-hint: "[version]"
-user-invocable: true
 ---
 
 # Breaking Changes Detection Skill

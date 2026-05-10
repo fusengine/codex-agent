@@ -1,9 +1,6 @@
 ---
 name: react-i18n
 description: react-i18next for React 19 - useTranslation hook, TypeScript Selector API, namespaces, pluralization, lazy loading, Suspense integration. Use when implementing translations in React apps (not Next.js).
-version: 1.0.0
-user-invocable: true
-references: references/i18next-basics.md, references/typescript-types.md, references/namespaces.md, references/pluralization.md, references/interpolation.md, references/lazy-loading.md, references/language-detection.md, references/react-19-integration.md, references/trans-component.md, references/testing.md, references/rtl-support.md, references/fallback-strategies.md, references/templates/basic-setup.md, references/templates/language-switcher.md, references/templates/typed-translations.md, references/templates/form-validation-i18n.md, references/templates/lazy-loading-routes.md, references/templates/date-number-formatter.md, references/templates/plural-interpolation.md, references/templates/trans-component-examples.md, references/templates/testing-i18n.md
 ---
 
 # react-i18next for React 19

@@ -1,7 +1,6 @@
 ---
 name: tailwindcss-responsive
 description: Responsive design, breakpoints, container queries
-user-invocable: false
 ---
 
 # Responsive Design

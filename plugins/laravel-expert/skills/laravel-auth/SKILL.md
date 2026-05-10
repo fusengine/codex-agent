@@ -1,13 +1,6 @@
 ---
 name: laravel-auth
 description: Use when implementing user authentication, API tokens, social login, or authorization. Covers Sanctum, Passport, Socialite, Fortify, policies, and gates for Laravel 12.
-versions:
-  laravel: "12.x"
-  sanctum: "4.0"
-  php: "8.4"
-user-invocable: true
-references: references/authentication.md, references/authorization.md, references/sanctum.md, references/passport.md, references/fortify.md, references/socialite.md, references/starter-kits.md, references/verification.md, references/passwords.md, references/session.md, references/csrf.md, references/encryption.md, references/hashing.md, references/templates/LoginController.php.md, references/templates/GatesAndPolicies.php.md, references/templates/PostPolicy.php.md, references/templates/sanctum-setup.md, references/templates/PassportSetup.php.md, references/templates/FortifySetup.php.md, references/templates/SocialiteController.php.md, references/templates/PasswordResetController.php.md
-related-skills: laravel-api, laravel-permission, fusecore
 ---
 
 # Laravel Authentication & Authorization
