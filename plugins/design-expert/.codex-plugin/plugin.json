@@ -1,7 +1,7 @@
 {
   "name": "fuse-design",
-  "version": "1.0.0",
-  "description": "Design Director for complete apps, sites, and SaaS. Multi-stack support (React/shadcn, Laravel/Livewire Flux, Swift/SwiftUI). Identity System, page layouts, motion system, palette generator, design audit. Anti-AI-Slop, WCAG 2.2, Gemini Design MCP.",
+  "version": "1.1.0",
+  "description": "Design Director — impeccable methodology spine + Gemini Design MCP renderer. Sector templates, OKLCH tokens, deterministic 27-rule audit.",
   "author": {
     "name": "Fusengine",
     "email": "hello@fusengine.ch",
@@ -14,6 +14,8 @@
     "design",
     "ui-ux",
     "design-director",
+    "design-system",
+    "impeccable",
     "identity-system",
     "multi-stack",
     "react",
@@ -26,13 +28,12 @@
     "wcag",
     "framer-motion",
     "oklch",
-    "page-layouts",
-    "audit-design"
+    "gemini-design"
   ],
   "interface": {
     "displayName": "Design",
-    "shortDescription": "Design Director for complete apps, sites, and SaaS. Multi-stack support (React/shadcn, Laravel/Livewire Flux, Swift/SwiftUI). Id",
-    "longDescription": "Design Director for complete apps, sites, and SaaS. Multi-stack support (React/shadcn, Laravel/Livewire Flux, Swift/SwiftUI). Identity System, page layouts, motion system, palette generator, design audit. Anti-AI-Slop, WCAG 2.2, Gemini Design MCP.",
+    "shortDescription": "Design Director — impeccable methodology + Gemini Design renderer for production-grade UI.",
+    "longDescription": "Design Director using the impeccable methodology as a deterministic spine and the Gemini Design MCP server as the HTML/JSX renderer. Sector templates, OKLCH P3 tokens, anti-AI-slop, WCAG 2.2 AA, 27-rule deterministic audit. Multi-stack handoff (React/shadcn, Laravel/Livewire Flux, Swift/SwiftUI).",
     "developerName": "Fusengine",
     "category": "Development",
     "capabilities": [
