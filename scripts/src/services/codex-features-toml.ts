@@ -9,6 +9,7 @@ export interface CodexFeatureAnswers {
 	sandboxMode: string;
 	webSearch: string;
 	reasoningEffort: string;
+	trustAllHooks: boolean;
 }
 
 export function upsertTopLevel(text: string, key: string, value: string): string {
@@ -38,5 +39,8 @@ export function applyCodexAnswers(configPath: string, a: CodexFeatureAnswers): v
 	text = upsertTopLevel(text, "sandbox_mode", tomlString(a.sandboxMode));
 	text = upsertTopLevel(text, "web_search", tomlString(a.webSearch));
 	text = upsertTopLevel(text, "model_reasoning_effort", tomlString(a.reasoningEffort));
+	if (a.trustAllHooks === true) {
+		text = upsertTopLevel(text, "approval_mode", tomlString("approve"));
+	}
 	writeFileSync(configPath, `${text.trimEnd()}\n`);
 }

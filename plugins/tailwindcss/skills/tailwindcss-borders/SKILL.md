@@ -1,7 +1,6 @@
 ---
 name: tailwindcss-borders
-description: "Border utilities Tailwind CSS v4.1. Border (border-width, border-color, border-style, border-radius, rounded-*), Outline (outline-*, outline-offset), Ring (ring-*, ring-offset), Divide (divide-*)."
-user-invocable: false
+description: Border utilities Tailwind CSS v4.1. Border (border-width, border-color, border-style, border-radius, rounded-*), Outline (outline-*, outline-offset), Ring (ring-*, ring-offset), Divide (divide-*).
 ---
 
 # Tailwind CSS Borders Skill

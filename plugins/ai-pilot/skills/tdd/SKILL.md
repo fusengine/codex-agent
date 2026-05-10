@@ -1,8 +1,6 @@
 ---
 name: tdd
 description: Use when writing production code that needs tests - new features, bug fixes, refactoring. Enforces RED-GREEN-REFACTOR cycle before any implementation.
-argument-hint: "[feature-or-file]"
-user-invocable: true
 ---
 
 # TDD Skill

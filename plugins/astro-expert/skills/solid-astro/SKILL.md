@@ -1,11 +1,6 @@
 ---
 name: solid-astro
 description: Use when applying SOLID principles and clean architecture to Astro projects. Enforces files < 100 lines, src/interfaces/ for types, JSDoc on all exports, modular directory structure, and DRY enforcement.
-versions:
-  astro: "6"
-user-invocable: true
-references: references/solid-principles.md, references/file-limits.md, references/interfaces.md, references/architecture.md, references/dry-enforcement.md, references/jsdoc.md, references/templates/component.md, references/templates/layout.md, references/templates/service.md, references/templates/interface.md
-related-skills: astro-6, astro-content, astro-styling, astro-i18n
 ---
 
 # SOLID Astro — Modular Architecture

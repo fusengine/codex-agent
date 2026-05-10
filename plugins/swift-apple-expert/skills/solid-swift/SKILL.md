@@ -1,12 +1,6 @@
 ---
 name: solid-swift
 description: SOLID principles for Swift 6 and SwiftUI (iOS 26+). Files < 100 lines, protocols separated, @Observable, actors, Preview-driven development. Features Modular MANDATORY.
-versions:
-  swift: "6.2"
-  ios: "26"
-user-invocable: true
-references: references/solid-principles.md, references/single-responsibility.md, references/open-closed.md, references/liskov-substitution.md, references/interface-segregation.md, references/dependency-inversion.md, references/concurrency-patterns.md, references/anti-patterns.md, references/templates/view.md, references/templates/viewmodel.md, references/templates/service.md, references/templates/protocol.md, references/templates/model.md
-related-skills: swift-core, swiftui-core, ios, macos, ipados, watchos, visionos, tvos
 ---
 
 # SOLID Swift - Apple Best Practices 2026

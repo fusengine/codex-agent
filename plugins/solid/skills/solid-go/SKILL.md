@@ -1,11 +1,6 @@
 ---
 name: solid-go
 description: SOLID principles for Go 1.23+. Files < 100 lines, interfaces separated, modular architecture. Modules MANDATORY.
-versions:
-  go: "1.23"
-user-invocable: true
-references: references/solid-principles.md, references/single-responsibility.md, references/open-closed.md, references/liskov-substitution.md, references/interface-segregation.md, references/dependency-inversion.md, references/architecture-patterns.md, references/templates/module.md, references/templates/service.md, references/templates/interface.md, references/templates/handler.md, references/templates/error.md, references/templates/test.md
-related-skills: solid-detection
 ---
 
 # SOLID Go - Modular Architecture

@@ -1,7 +1,6 @@
 ---
 name: tailwindcss-custom-styles
-description: "@utility, @variant, @apply, custom CSS"
-user-invocable: false
+description: '@utility, @variant, @apply, custom CSS'
 ---
 
 # Custom Styles

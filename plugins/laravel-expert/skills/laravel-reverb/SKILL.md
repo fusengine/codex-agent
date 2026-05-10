@@ -1,13 +1,6 @@
 ---
 name: laravel-reverb
 description: Implement real-time WebSocket communication with Laravel Reverb. Use when adding live updates, chat, notifications, or presence features.
-versions:
-  laravel: "12.46"
-  reverb: "1.4"
-  php: "8.5"
-user-invocable: false
-references: references/channels.md, references/client.md
-related-skills: laravel-architecture, laravel-queues
 ---
 
 # Laravel Reverb

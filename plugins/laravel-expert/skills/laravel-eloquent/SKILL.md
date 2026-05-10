@@ -1,12 +1,6 @@
 ---
 name: laravel-eloquent
 description: Complete Eloquent ORM - models, relationships, queries, casts, observers, factories. Use when working with database models.
-versions:
-  laravel: "12.x"
-  php: "8.4"
-user-invocable: true
-references: references/models.md, references/relationships-basic.md, references/relationships-many-to-many.md, references/relationships-advanced.md, references/relationships-polymorphic.md, references/eager-loading.md, references/scopes.md, references/casts.md, references/accessors-mutators.md, references/events-observers.md, references/soft-deletes.md, references/collections.md, references/serialization.md, references/factories.md, references/performance.md, references/resources.md, references/transactions.md, references/pagination.md, references/aggregates.md, references/batch-operations.md, references/query-debugging.md, references/templates/ModelBasic.php.md, references/templates/ModelRelationships.php.md, references/templates/ModelCasts.php.md, references/templates/Observer.php.md, references/templates/Factory.php.md, references/templates/Resource.php.md, references/templates/EagerLoadingExamples.php.md
-related-skills: laravel-migrations, laravel-api, laravel-testing
 ---
 
 # Laravel Eloquent ORM

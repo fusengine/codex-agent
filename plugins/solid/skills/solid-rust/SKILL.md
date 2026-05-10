@@ -1,11 +1,6 @@
 ---
 name: solid-rust
 description: SOLID principles for Rust 2024+. Files < 100 lines, traits separated, modular architecture. Modules MANDATORY.
-versions:
-  rust: "2024"
-user-invocable: true
-references: references/solid-principles.md, references/single-responsibility.md, references/open-closed.md, references/liskov-substitution.md, references/interface-segregation.md, references/dependency-inversion.md, references/architecture-patterns.md, references/templates/module.md, references/templates/service.md, references/templates/trait-def.md, references/templates/handler.md, references/templates/error.md, references/templates/test.md
-related-skills: solid-detection
 ---
 
 # SOLID Rust - Modular Architecture

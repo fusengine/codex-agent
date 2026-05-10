@@ -1,13 +1,6 @@
 ---
 name: astro-6
 description: Expert Astro 6 framework — routing, output modes, middleware, Vite Environment API, Rust compiler, Content Security Policy, Live Collections, Fonts API. Use when building Astro sites, configuring output, or upgrading from Astro 5.
-versions:
-  astro: 6
-  node: "22+"
-  vite: 6
-user-invocable: true
-references: references/installation.md, references/routing.md, references/output-modes.md, references/middleware.md, references/config.md, references/new-features.md, references/templates/basic-setup.md, references/templates/config-example.md
-related-skills: astro-content, astro-actions, astro-islands, astro-integrations, astro-deployment
 ---
 
 # Astro 6 Expert

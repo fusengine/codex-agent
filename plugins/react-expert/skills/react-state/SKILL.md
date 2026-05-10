@@ -1,12 +1,6 @@
 ---
 name: react-state
 description: Zustand v5 state management for React. Use when implementing global state, stores, persist, or client-side state.
-versions:
-  zustand: 5.0
-  react: 19
-user-invocable: true
-references: references/installation.md, references/store-patterns.md, references/middleware.md, references/typescript.md, references/slices.md, references/auto-selectors.md, references/reset-state.md, references/subscribe-api.md, references/testing.md, references/migration-v5.md
-related-skills: react-19, react-forms, solid-react
 ---
 
 # Zustand for React

@@ -1,8 +1,6 @@
 ---
 name: map-ecosystem
-description: "Enrich auto-generated .cartographer/ maps with full descriptions from source files."
-context: fork
-user-invocable: true
+description: Enrich auto-generated .cartographer/ maps with full descriptions from source files.
 ---
 
 # Map Ecosystem — Enrich Descriptions

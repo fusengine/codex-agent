@@ -1,13 +1,6 @@
 ---
 name: laravel-permission
 description: Spatie Laravel Permission - roles, permissions, middleware, Blade directives, teams, wildcards, super-admin, API, testing. Use when implementing RBAC, role-based access control, or user authorization.
-versions:
-  laravel: "12.46"
-  spatie-permission: "6.24"
-  php: "8.5"
-user-invocable: false
-references: references/spatie-permission.md, references/middleware.md, references/blade-directives.md, references/teams.md, references/wildcard-permissions.md, references/super-admin.md, references/cache.md, references/direct-permissions.md, references/artisan-commands.md, references/custom-models.md, references/events.md, references/query-scopes.md, references/policies.md, references/api-usage.md, references/testing.md, references/performance.md
-related-skills: laravel-auth, laravel-api, laravel-testing
 ---
 
 # Laravel Permission (Spatie)

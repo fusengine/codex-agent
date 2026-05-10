@@ -1,8 +1,6 @@
 ---
 name: code-quality
 description: Code quality validation with linters, SOLID principles, DRY detection, error detection, and architecture compliance across all languages.
-argument-hint: "[file-or-directory]"
-user-invocable: true
 ---
 
 # Code Quality Skill

@@ -1,14 +1,6 @@
 ---
 name: shadcn-migration
 description: Migration guide between Radix UI and Base UI primitives for shadcn/ui. Covers step-by-step migration, API transformations, and validation checklists.
-versions:
-  shadcn-ui: "2.x"
-  radix-ui: "1.x"
-  base-ui: "1.x"
-user-invocable: true
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task
-references: references/radix-to-baseui.md, references/baseui-to-radix.md, references/templates/migration-dialog.md
-related-skills: shadcn-detection, shadcn-components
 ---
 
 # shadcn Migration

@@ -1,9 +1,6 @@
 ---
 name: elicitation
 description: Auto-review skill for expert agents. After coding, expert applies elicitation techniques to self-correct before sniper validation. Inspired by BMAD-METHOD.
-argument-hint: "[--auto] [--manual] [--skip]"
-color: purple
-user-invocable: false
 ---
 
 # Elicitation Skill

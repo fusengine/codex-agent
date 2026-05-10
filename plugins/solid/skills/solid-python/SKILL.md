@@ -1,11 +1,6 @@
 ---
 name: solid-python
 description: SOLID principles for Python 3.12+. Files < 100 lines, interfaces separated, modular architecture. Modules MANDATORY.
-versions:
-  python: "3.12"
-user-invocable: true
-references: references/principles.md, references/patterns.md
-related-skills: solid-detection
 ---
 
 # SOLID Python - Modular Architecture

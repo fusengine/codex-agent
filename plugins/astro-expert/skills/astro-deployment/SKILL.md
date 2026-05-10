@@ -1,11 +1,6 @@
 ---
 name: astro-deployment
 description: Deploying Astro 6 apps — @astrojs/cloudflare (Workers, D1, KV, R2), @astrojs/vercel (Serverless/Edge, Image CDN), @astrojs/netlify (Edge Functions), @astrojs/node (standalone), ISR patterns, edge middleware, skew protection. Use for any deployment configuration.
-versions:
-  astro: "6"
-user-invocable: true
-references: references/cloudflare-adapter.md, references/vercel-adapter.md, references/netlify-adapter.md, references/node-adapter.md, references/isr-patterns.md, references/edge-middleware.md, references/templates/cloudflare-setup.md, references/templates/vercel-setup.md
-related-skills: astro-6, astro-db, astro-islands
 ---
 
 # Astro Deployment

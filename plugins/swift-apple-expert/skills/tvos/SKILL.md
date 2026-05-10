@@ -1,11 +1,6 @@
 ---
 name: tvos
 description: tvOS platform-specific development with focus system, large screen UI, Siri Remote, and media playback. Use when building Apple TV apps, video streaming, or living room experiences.
-versions:
-  tvos: 26
-user-invocable: false
-references: references/focus-system.md, references/media-playback.md, references/remote-control.md
-related-skills: swift-core, swiftui-core, mcp-tools
 ---
 
 # tvOS Platform

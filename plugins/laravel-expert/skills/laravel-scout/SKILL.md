@@ -1,13 +1,6 @@
 ---
 name: laravel-scout
 description: Implement full-text search with Laravel Scout. Use when adding search to Eloquent models with Meilisearch, Algolia, or database driver.
-versions:
-  laravel: "12.46"
-  scout: "10.12"
-  php: "8.5"
-user-invocable: false
-references: references/searchable.md, references/drivers.md
-related-skills: laravel-architecture, laravel-eloquent
 ---
 
 # Laravel Scout

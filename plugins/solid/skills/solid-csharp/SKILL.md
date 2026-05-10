@@ -1,12 +1,6 @@
 ---
 name: solid-csharp
 description: SOLID principles for C# 12/.NET 9. Files < 100 lines, interfaces separated, modular architecture. Contracts MANDATORY.
-versions:
-  csharp: "12"
-  dotnet: "9"
-user-invocable: true
-references: references/principles.md, references/patterns.md
-related-skills: solid-detection
 ---
 
 # SOLID C# - Modular Architecture

@@ -1,12 +1,6 @@
 ---
 name: laravel-blade
 description: Create Blade templates with components, slots, layouts, and directives. Use when building views, reusable components, or templating.
-versions:
-  laravel: "12.x"
-  php: "8.4"
-user-invocable: true
-references: references/components.md, references/slots-attributes.md, references/layouts.md, references/directives.md, references/security.md, references/vite.md, references/advanced-directives.md, references/custom-directives.md, references/advanced-components.md, references/forms-validation.md, references/fragments.md, references/templates/ClassComponent.php.md, references/templates/AnonymousComponent.blade.md, references/templates/LayoutComponent.blade.md, references/templates/FormComponent.blade.md, references/templates/CardWithSlots.blade.md, references/templates/DynamicComponent.blade.md, references/templates/AdvancedDirectives.blade.md, references/templates/CustomDirectives.php.md, references/templates/AdvancedComponents.blade.md, references/templates/Fragments.blade.md
-related-skills: laravel-livewire, laravel-i18n, fusecore
 ---
 
 # Laravel Blade

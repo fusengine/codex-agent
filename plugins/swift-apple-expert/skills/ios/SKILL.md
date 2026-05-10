@@ -1,12 +1,6 @@
 ---
 name: ios
 description: iOS platform-specific development with XcodeBuildMCP tools for simulator, device, UI automation, and debugging. Use when building iPhone apps, testing on simulator/device, or automating UI interactions.
-versions:
-  ios: 26
-  xcode: 26
-user-invocable: false
-references: references/simulator-tools.md, references/device-tools.md, references/ui-automation.md, references/debugging.md, references/uikit-integration.md
-related-skills: swift-core, swiftui-core, ipados, mcp-tools
 ---
 
 # iOS Platform

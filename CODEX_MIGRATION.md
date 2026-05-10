@@ -112,6 +112,86 @@ secrets/
 credentials.json
 ```
 
+## Sprint 2 — Codex 0.130 compliance
+
+Sprint 2 aligns the converter, skills, and setup pipeline with the Codex 0.130 schema (subagents, skills, plugins).
+
+### Token-economy model mapping (Anthropic → Codex)
+
+`scripts/src/services/codex-model-mapper.ts` maps Anthropic aliases used in plugin agents to Codex models with explicit reasoning effort:
+
+| Anthropic alias | Codex model           | Reasoning effort |
+|-----------------|-----------------------|------------------|
+| `opus`          | `gpt-5.4`             | `high`           |
+| `sonnet`        | `gpt-5.4-mini`        | `medium`         |
+| `haiku`         | `gpt-5.3-codex-spark` | `medium`         |
+| missing / unknown | omitted (inherits parent session) | `medium` |
+
+Rationale: keep heavy reasoning agents on `opus → gpt-5.4 high`, drop routine agents to `sonnet → gpt-5.4-mini`, route fast/cheap utility agents to `haiku → gpt-5.3-codex-spark`. Unknown aliases stay unset so the parent session model wins (no silent override).
+
+Reference: [developers.openai.com/codex/subagents](https://developers.openai.com/codex/subagents).
+
+### Subagent filename format
+
+Legacy: `~/.codex/agents/fusengine-<agent>.toml`.
+New: `~/.codex/agents/<plugin-slug>-<agent>.toml` (e.g. `fuse-ai-pilot-research-expert.toml`). The `fusengine-` prefix is gone — it added no namespacing value and clashed with the plugin-slug convention.
+
+The cleanup logic in the installer removes **both** legacy `fusengine-*.toml` and the new `<plugin-slug>-*.toml` shape on each run, so a migration from a previous setup leaves no orphan files.
+
+`developer_instructions` in each generated TOML now records `Source agent: <plugin>/agents/<file>.md` (repo-relative, no absolute machine path leaked).
+
+### Per-agent MCP servers
+
+Agents that need scoped MCP access declare them in their generated TOML rather than inheriting the full parent set:
+
+- `research-expert` → `context7`, `exa`
+- `design-expert` → `gemini-design`, `magic`
+- `websearch` → `exa`
+- All others → inherit parent session
+
+This keeps subagent contexts narrow and reduces tool-search noise.
+
+### Skills frontmatter — strict compliance
+
+Per [developers.openai.com/codex/skills](https://developers.openai.com/codex/skills), `SKILL.md` frontmatter accepts only `name` and `description`. Sprint 2 audited and normalized all 131 SKILL.md files:
+
+- 129 files modified, 2 already compliant
+- ~410 non-standard frontmatter fields removed
+- 1 description truncated and normalized to single-line (`apex`: 508 → 445 chars, all trigger keywords preserved)
+- Body content of SKILL.md files left untouched
+
+Field types removed (count): `user-invocable` (114), `references` (78), `related-skills` (74), `versions` (69), `argument-hint` (20), `allowed-tools` (13), `phase` (7), `version` (6), `context` (5), `agent` (4), `color` (1), `hooks` (1), `disable-model-invocation` (1).
+
+### `[agents]` global config
+
+`scripts/src/services/codex-agents-config.ts` writes the `[agents]` block to `~/.codex/config.toml` (idempotent, preserves user-set values):
+
+```toml
+[agents]
+max_threads = 6
+max_depth = 2
+job_max_runtime_seconds = 1800
+```
+
+Reference: [developers.openai.com/codex/subagents](https://developers.openai.com/codex/subagents).
+
+### `approval_mode` opt-in prompt
+
+The setup adds an interactive prompt (default **No**):
+
+> Bypass per-hook security review via `approval_mode=approve`?
+> WARNING RISKY: this disables Codex's per-hook trust gate for ALL hooks (not just fusengine).
+> Recommended: review hooks individually via `/hooks` in Codex TUI.
+
+Choosing **Yes** writes top-level `approval_mode = "approve"` in `~/.codex/config.toml`. The recommended path is per-hook review via `/hooks` in the TUI — the prompt exists for CI/lab edge cases. See [installation guide → Trusting hooks](docs/getting-started/installation.md#trusting-hooks-codex-0129).
+
+Modules:
+
+- `scripts/src/services/codex-model-mapper.ts`
+- `scripts/src/services/codex-agents-config.ts`
+- `scripts/src/services/codex-features-toml.ts` (added `trustAllHooks`)
+- `scripts/src/services/codex-features-prompts.ts`
+
 ## Archived hook events (unsupported by Codex)
 
 `plugins/<plugin>/codex-unsupported-hooks.json` preserves hook events that have no direct Codex equivalent:

@@ -1,11 +1,6 @@
 ---
 name: agent-creator
 description: Use when creating expert agents. Generates agent.md with frontmatter, hooks, required sections, and skill references.
-versions:
-  codex-plugins: "1.35"
-user-invocable: true
-references: references/architecture.md, references/frontmatter.md, references/required-sections.md, references/hooks.md, references/registration.md, references/templates/agent-template.md, references/templates/hook-scripts.md
-related-skills: skill-creator, exploration
 ---
 
 # Agent Creator

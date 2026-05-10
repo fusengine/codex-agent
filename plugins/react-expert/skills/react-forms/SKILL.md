@@ -1,9 +1,6 @@
 ---
 name: react-forms
 description: TanStack Form v1 - type-safe forms with Zod/Yup/Valibot validation, async validation, arrays, nested fields, React 19 Server Actions
-version: 1.0.0
-user-invocable: true
-references: references/tanstack-form-basics.md, references/zod-validation.md, references/async-validation.md, references/server-actions.md, references/arrays-nested.md, references/typescript.md, references/yup-valibot.md, references/shadcn-integration.md, references/listeners.md, references/linked-fields.md, references/reactivity.md, references/reset-api.md, references/ssr-hydration.md, references/devtools.md, references/react-native.md, references/standard-schema.md, references/templates/basic-form.md, references/templates/multi-step-form.md, references/templates/dynamic-fields.md, references/templates/file-upload-form.md, references/templates/server-action-form.md, references/templates/optimistic-form.md, references/templates/nested-form.md, references/templates/search-form.md, references/templates/conditional-fields.md, references/templates/form-composition.md, references/templates/listeners-form.md, references/templates/linked-fields-form.md, references/templates/reactivity-form.md, references/templates/reset-form.md, references/templates/ssr-form.md, references/templates/devtools-form.md, references/templates/react-native-form.md
 ---
 
 # TanStack Form v1 Core Features

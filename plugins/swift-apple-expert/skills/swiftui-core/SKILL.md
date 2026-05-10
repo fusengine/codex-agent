@@ -1,12 +1,6 @@
 ---
 name: swiftui-core
 description: SwiftUI fundamentals for all Apple platforms. Use when building views, navigation, data persistence, or state management with SwiftUI across iOS, macOS, iPadOS, watchOS, visionOS.
-versions:
-  swiftui: 6
-  ios: 26
-user-invocable: false
-references: references/views-modifiers.md, references/navigation.md, references/data-swiftdata.md, references/state-management.md, references/liquid-glass.md, references/app-intents.md
-related-skills: swift-core, solid-swift, ios, macos, ipados, watchos, visionos, tvos
 ---
 
 # SwiftUI Core

@@ -1,15 +1,6 @@
 ---
 name: react-testing
 description: Testing Library for React 19 - render, screen, userEvent, waitFor, Suspense. Use when writing tests for React components with Vitest.
-versions:
-  "@testing-library/react": 16.1.0
-  "@testing-library/user-event": 14.5.2
-  vitest: 2.1.8
-  msw: 2.7.0
-  react: 19
-user-invocable: true
-references: references/installation.md, references/queries.md, references/user-events.md, references/async-testing.md, references/msw-setup.md, references/react-19-hooks.md, references/accessibility-testing.md, references/hooks-testing.md, references/vitest-config.md, references/mocking-patterns.md, references/templates/basic-setup.md, references/templates/component-basic.md, references/templates/component-async.md, references/templates/form-testing.md, references/templates/hook-basic.md, references/templates/api-integration.md, references/templates/suspense-testing.md, references/templates/error-boundary.md, references/templates/accessibility-audit.md
-related-skills: react-19, solid-react, react-state, react-forms
 ---
 
 # React Testing Library

@@ -1,7 +1,6 @@
 ---
 name: guardrails
 description: Security techniques and quality control for prompts and agents
-allowed-tools: Read
 ---
 
 # Guardrails

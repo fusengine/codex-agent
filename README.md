@@ -106,6 +106,7 @@ Each plugin provides an **expert agent** that auto-activates when it detects the
 | **Transcript watcher** | Capture les outils natifs Codex non-hookables (`read_file`, `web_search`, `spawn_agent`) via tail du rollout JSONL — alimente les guards APEX |
 | **Cross-platform TTS** | Notification audio fin de tâche : macOS (`afplay`), Linux (`paplay`/`aplay`/`mpv`/`ffplay`), Windows (`SoundPlayer`) |
 | **Codex feature flags** | Audit 0.130 : `hooks`, `tool_search`, `personality`, `multi_agent`, `fast_mode`, `shell_snapshot`, `enable_request_compression`, `skill_mcp_dependency_install`, `memories`, `goals` (defaults) + 6 prompts (`memories`, `apps`, `approval_policy`, `sandbox_mode`, `web_search`, `model_reasoning_effort`) |
+| **Codex 0.130 compliant** | Token-economy model mapping (`opus → gpt-5.4 high`, `sonnet → gpt-5.4-mini medium`, `haiku → gpt-5.3-codex-spark medium`), subagent filenames `<plugin-slug>-<agent>.toml`, per-agent MCP scoping (research-expert, design-expert, websearch), `[agents]` global config, opt-in `approval_mode` prompt, 131 skills with strict `name`+`description`-only frontmatter |
 
 ## Documentation
 

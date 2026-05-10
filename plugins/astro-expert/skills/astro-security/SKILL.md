@@ -1,11 +1,6 @@
 ---
 name: astro-security
 description: Use when configuring Content Security Policy (CSP) in Astro 6, setting security headers, managing script/style hashes, using nonces, or implementing experimentalStaticHeaders for adapter deployments.
-versions:
-  astro: "6"
-user-invocable: true
-references: references/csp-overview.md, references/csp-config.md, references/script-directive.md, references/style-directive.md, references/nonces.md, references/static-headers.md, references/templates/csp-basic.md, references/templates/csp-advanced.md
-related-skills: astro-6, astro-deployment, solid-astro
 ---
 
 # Astro Security

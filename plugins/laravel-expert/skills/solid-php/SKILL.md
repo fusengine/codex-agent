@@ -1,12 +1,6 @@
 ---
 name: solid-php
 description: SOLID principles for Laravel 12 and PHP 8.5. Files < 100 lines, interfaces separated, PHPDoc mandatory. Auto-detects Laravel and FuseCore architecture.
-versions:
-  laravel: "12.46"
-  php: "8.5"
-user-invocable: true
-references: references/solid-principles.md, references/single-responsibility.md, references/open-closed.md, references/liskov-substitution.md, references/interface-segregation.md, references/dependency-inversion.md, references/anti-patterns.md, references/decision-guide.md, references/php85-features.md, references/laravel12-structure.md, references/fusecore-structure.md, references/templates/code-templates.md, references/templates/controller-templates.md, references/templates/refactoring-guide.md
-related-skills: laravel-architecture, fusecore
 ---
 
 # SOLID PHP - Laravel 12 + PHP 8.5

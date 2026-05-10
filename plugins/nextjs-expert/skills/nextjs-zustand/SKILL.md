@@ -1,13 +1,6 @@
 ---
 name: nextjs-zustand
 description: Zustand v5 state management for Next.js 16 App Router. Use when implementing global state, stores, persist, hydration, or client-side state in Client Components.
-versions:
-  zustand: 5.0
-  react: 19
-  nextjs: 16
-user-invocable: true
-references: references/installation.md, references/store-patterns.md, references/hydration.md, references/middleware.md, references/nextjs-integration.md, references/typescript.md, references/slices.md, references/auto-selectors.md, references/reset-state.md, references/subscribe-api.md, references/testing.md, references/migration-v5.md
-related-skills: nextjs-16, nextjs-tanstack-form, solid-nextjs
 ---
 
 # Zustand for Next.js 16

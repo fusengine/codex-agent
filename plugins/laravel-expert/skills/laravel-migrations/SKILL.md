@@ -1,12 +1,6 @@
 ---
 name: laravel-migrations
 description: Laravel 12 database migrations - Schema Builder, columns, indexes, foreign keys, seeders. Use when designing database schema or managing migrations.
-versions:
-  laravel: "12.x"
-  php: "8.4"
-user-invocable: true
-references: references/schema.md, references/columns.md, references/indexes.md, references/foreign-keys.md, references/commands.md, references/seeding.md, references/testing.md, references/production.md, references/troubleshooting.md, references/templates/CreateTableMigration.php.md, references/templates/ModifyTableMigration.php.md, references/templates/PivotTableMigration.php.md, references/templates/Seeder.php.md, references/templates/MigrationTest.php.md
-related-skills: laravel-eloquent, laravel-testing, laravel-architecture
 ---
 
 # Laravel Migrations

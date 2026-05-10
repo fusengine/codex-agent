@@ -1,12 +1,6 @@
 ---
 name: laravel-architecture
 description: Design Laravel app architecture with services, repositories, actions, and clean code patterns. Use when structuring projects, creating services, implementing DI, or organizing code layers.
-versions:
-  laravel: "12.46"
-  php: "8.5"
-user-invocable: true
-references: references/container.md, references/providers.md, references/facades.md, references/contracts.md, references/structure.md, references/lifecycle.md, references/configuration.md, references/installation.md, references/upgrade.md, references/releases.md, references/sail.md, references/valet.md, references/homestead.md, references/octane.md, references/artisan.md, references/helpers.md, references/filesystem.md, references/processes.md, references/context.md, references/pennant.md, references/mcp.md, references/concurrency.md, references/deployment.md, references/envoy.md, references/logging.md, references/errors.md, references/packages.md
-related-skills: solid-php, laravel-api, laravel-eloquent
 ---
 
 # Laravel Architecture Patterns

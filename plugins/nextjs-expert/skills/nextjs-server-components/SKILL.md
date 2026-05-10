@@ -1,12 +1,6 @@
 ---
 name: nextjs-server-components
 description: React Server Components patterns for Next.js 16. Server vs Client boundaries, async components, data fetching, serialization rules, streaming with Suspense.
-versions:
-  nextjs: 16
-  react: 19
-user-invocable: true
-references: references/rsc-patterns.md, references/streaming.md
-related-skills: nextjs-16, nextjs-tanstack-query, react-19
 ---
 
 # Next.js Server Components

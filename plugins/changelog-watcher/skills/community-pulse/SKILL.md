@@ -1,8 +1,6 @@
 ---
 name: community-pulse
 description: Monitor community feedback on Codex via Exa search. Gathers sentiment, real-world usage patterns, bug reports, and feature requests from blogs, forums, and social media.
-argument-hint: "[--deep] [topic]"
-user-invocable: true
 ---
 
 # Community Pulse Skill

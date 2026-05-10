@@ -1,11 +1,6 @@
 ---
 name: ipados
 description: iPadOS platform-specific development with adaptive layouts, keyboard shortcuts, multitasking, and Stage Manager. Use when building iPad apps with split views, external keyboard support, or multi-window features.
-versions:
-  ipados: 26
-user-invocable: false
-references: references/adaptive-layouts.md, references/keyboard-shortcuts.md, references/multitasking.md
-related-skills: swift-core, swiftui-core, ios, mcp-tools
 ---
 
 # iPadOS Platform

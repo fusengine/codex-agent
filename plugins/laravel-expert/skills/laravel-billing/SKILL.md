@@ -1,14 +1,6 @@
 ---
 name: laravel-billing
 description: Integrate Stripe and Paddle payments with Laravel Cashier. Use when implementing subscriptions, invoices, payment methods, webhooks, or billing portals.
-versions:
-  laravel: "12.x"
-  cashier-stripe: "16.x"
-  cashier-paddle: "2.x"
-  php: "8.4"
-user-invocable: true
-references: references/stripe.md, references/paddle.md, references/subscriptions.md, references/webhooks.md, references/invoices.md, references/payment-methods.md, references/testing.md, references/checkout.md, references/metered-billing.md, references/team-billing.md, references/dunning.md, references/feature-flags.md, references/templates/UserBillable.php.md, references/templates/SubscriptionController.php.md, references/templates/WebhookController.php.md, references/templates/CheckoutController.php.md, references/templates/InvoiceController.php.md, references/templates/BillingRoutes.php.md, references/templates/SubscriptionTest.php.md, references/templates/MeteredBillingController.php.md, references/templates/TeamBillable.php.md, references/templates/DunningService.php.md, references/templates/FeatureFlags.php.md
-related-skills: laravel-auth, laravel-api, fusecore
 ---
 
 # Laravel Billing (Cashier)

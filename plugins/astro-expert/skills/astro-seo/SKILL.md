@@ -1,11 +1,6 @@
 ---
 name: astro-seo
 description: SEO for Astro sites — meta tags, Open Graph, Twitter Cards, JSON-LD structured data, sitemap, RSS, robots.txt, canonical URLs, hreflang, Core Web Vitals. Use when optimizing search engine visibility or social sharing.
-versions:
-  astro: "6"
-user-invocable: true
-references: references/meta-tags.md, references/structured-data.md, references/sitemap-rss.md, references/canonical-hreflang.md, references/core-web-vitals.md, references/templates/seo-head.md, references/templates/json-ld.md
-related-skills: astro-6, astro-content, astro-assets, astro-i18n
 ---
 
 # Astro SEO

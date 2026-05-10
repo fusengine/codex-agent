@@ -1,11 +1,6 @@
 ---
 name: astro-db
 description: Astro DB — defineDb, defineTable, column types, CRUD with db.select/insert/update/delete, db/config.ts, db/seed.ts, Turso for production, type-safety, integration with Astro Actions. Use for any database operation in an Astro project.
-versions:
-  astro: "6"
-user-invocable: true
-references: references/schema-definition.md, references/crud-operations.md, references/seed-data.md, references/turso-production.md, references/actions-integration.md, references/templates/db-config.md, references/templates/crud-example.md
-related-skills: astro-6, astro-actions, astro-deployment
 ---
 
 # Astro DB
