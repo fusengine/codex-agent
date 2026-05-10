@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { basename, join, relative } from "node:path";
 import { adaptAgentInstructions } from "./codex-agent-instructions";
+import { mcpBlockForAgent } from "./codex-agent-mcp";
 import { PREFIX_BY_PLUGIN } from "./codex-agent-prefixes";
 import { effortForAlias, mapToCodexModel } from "./codex-model-mapper";
 import type { CodexRuntimePaths } from "./codex-runtime";
@@ -10,12 +11,6 @@ export interface ConvertedAgent {
 	name: string;
 	toml: string;
 }
-
-const MCP_BY_AGENT: Record<string, readonly string[]> = {
-	"research-expert": ["context7", "exa"],
-	"design-expert": ["gemini-design", "magic"],
-	websearch: ["exa"],
-};
 
 const safeName = (v: string) => v.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 const tomlStr = (v: string) => JSON.stringify(v);
@@ -36,11 +31,6 @@ function parseAgentMarkdown(text: string): { body: string; meta: Record<string, 
 
 function sandboxFor(d: string, b: string): string | undefined {
 	return /read-only|no file modifications|do not make code changes/.test(`${d}\n${b}`.toLowerCase()) ? "read-only" : undefined;
-}
-
-function mcpBlock(name: string): string {
-	const s = MCP_BY_AGENT[name];
-	return s ? s.map((id) => `\n[mcp_servers.${id}]`).join("") + "\n" : "";
 }
 
 function agentToml(plugin: string, sourcePath: string, pluginsDir: string, text: string): ConvertedAgent {
@@ -64,7 +54,7 @@ function agentToml(plugin: string, sourcePath: string, pluginsDir: string, text:
 	if (codexModel) lines.push(`model = ${tomlStr(codexModel)}`);
 	const sandbox = sandboxFor(description, body);
 	if (sandbox) lines.push(`sandbox_mode = ${tomlStr(sandbox)}`);
-	lines.push(`developer_instructions = ${tomlBlock(instructions)}`, mcpBlock(originalName));
+	lines.push(`developer_instructions = ${tomlBlock(instructions)}`, mcpBlockForAgent(originalName));
 	return { fileName: `${slug}-${safeName(originalName).replace(/_/g, "-")}.toml`, name, toml: lines.join("\n") };
 }
 

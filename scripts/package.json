@@ -2,7 +2,8 @@
 	"name": "@fusengine/hooks-loader",
 	"version": "2.0.0",
 	"devDependencies": {
-		"@types/bun": "^1.3.13"
+		"@types/bun": "^1.3.13",
+		"typescript": "^6.0.3"
 	},
 	"description": "Hooks loader for Codex plugins - Bun + SOLID",
 	"engines": {
