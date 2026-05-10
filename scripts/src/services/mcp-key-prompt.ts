@@ -7,15 +7,39 @@ import type { McpCatalog } from "../interfaces/mcp";
 import { hasApiKey } from "./mcp-defaults";
 import { loadEnvFile, saveEnvFile } from "./env-file";
 
+/**
+ * Persist any keys present in process.env to ~/.codex/.env.
+ * Self-containment: Codex must not depend on shell init scripts (e.g. fish
+ * conf.d sourcing ~/.claude/.env). Once a key is in the .env file, Codex
+ * is the source of truth.
+ */
+export function syncShellEnvToCodexFile(envVars: string[]): void {
+	const env = loadEnvFile();
+	let changed = false;
+	for (const v of envVars) {
+		const fromShell = process.env[v];
+		if (fromShell && !env[v]) {
+			env[v] = fromShell;
+			changed = true;
+		}
+	}
+	if (changed) saveEnvFile(env);
+}
+
 /** Prompt for missing API keys needed by selected MCP servers */
 export async function promptMissingKeys(
 	selected: string[],
 	catalog: McpCatalog,
 ): Promise<void> {
-	const missing = selected
+	const requiredKeys = selected
 		.map((name) => catalog.mcpServers[name])
-		.filter((c) => c.requiresApiKey && c.apiKeyEnv)
-		.filter((c) => !hasApiKey(c.apiKeyEnv!));
+		.filter((c) => c.requiresApiKey && c.apiKeyEnv);
+
+	// Self-containment: persist any process.env-only keys to ~/.codex/.env
+	// before deciding what is still missing.
+	syncShellEnvToCodexFile(requiredKeys.map((c) => c.apiKeyEnv!));
+
+	const missing = requiredKeys.filter((c) => !hasApiKey(c.apiKeyEnv!));
 
 	if (missing.length === 0) return;
 
