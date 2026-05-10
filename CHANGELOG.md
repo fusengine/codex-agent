@@ -1,5 +1,18 @@
 # Release Notes
 
+## [1.0.7] - 11-05-2026
+
+### Changed
+
+- feat(codex): refresh model mapping for GPT-5.5 (released 2026-04-23)
+  - `opus → gpt-5.5` (high) — premium tier, 1.05M context, xhigh-capable
+  - `sonnet → gpt-5.4` (medium) — upgraded from gpt-5.4-mini for routine work
+  - `haiku → gpt-5.4-mini` (low) — replaces gpt-5.3-codex-spark which is
+    gated to ChatGPT Pro subscribers (open to all tiers now)
+  - `effortForAlias()` extended with `"low"` return type (was `"high" | "medium"`)
+  - Docs synced: README, CODEX_MIGRATION.md, test assertions
+- 128/128 tests pass, tsc clean
+
 ## [1.0.6] - 10-05-2026
 
 ### Fixed
