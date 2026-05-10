@@ -1,5 +1,24 @@
 # Release Notes
 
+## [1.0.6] - 10-05-2026
+
+### Fixed
+
+- fix(codex): inline full mcp_servers definitions in subagent TOML
+  - Empty `[mcp_servers.X]` tables in `~/.codex/agents/*.toml` triggered
+    "invalid transport" deserialization errors — research-expert,
+    websearch and design-expert agents failed to load.
+  - Codex 0.130 subagents do NOT inherit MCP servers from parent config;
+    each block requires the full server definition (command/args).
+  - New `codex-agent-mcp.ts` (44 LoC) emits valid TOML blocks for
+    context7, exa, gemini-design, magic.
+  - `env` block intentionally omitted: Codex 0.130 does NOT interpolate
+    `${VAR}` (open issues #7521, #7367, #2680). MCP children inherit
+    `process.env` from Codex which sources `~/.codex/.env` at startup
+    (sprint 4 mechanism).
+  - `codex-agent-converter.ts` reduced to 87 LoC (SOLID restored).
+- 128/128 tests pass, tsc clean.
+
 ## [1.0.5] - 10-05-2026
 
 ### Fixed
