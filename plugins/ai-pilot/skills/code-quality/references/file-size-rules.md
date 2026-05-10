@@ -17,6 +17,14 @@ related: solid-validation.md, architecture-patterns.md
 | **LoC** >= 100, **Total** < 200 | | ✅ OK (well-documented) |
 | **Total** >= 200 | | ❌ SPLIT required |
 
+## Enforced Extensions
+
+The PostToolUse hook `enforce-file-size.py` validates these extensions:
+
+`.ts`, `.tsx`, `.js`, `.jsx`, `.py`, `.go`, `.rs`, `.java`, `.php`, `.cpp`, `.c`, `.rb`, `.swift`, `.kt`, `.dart`, `.vue`, `.svelte`, `.astro`
+
+**Not enforced** (intentional): `.html`, `.htm`, `.css`, `.scss`, `.md`, `.json`, `.yaml`, `.toml`, `.sql`, `.sh`. Markup, style, and data files often legitimately exceed 100 lines (design previews, design tokens, utility classes, structured data). HTML is intentionally excluded — design outputs (Gemini Design MCP, single-page mockups) and static templates regularly run hundreds of lines without being a code-quality issue.
+
 ## LoC Calculation
 
 ```

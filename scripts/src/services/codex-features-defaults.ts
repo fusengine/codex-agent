@@ -5,15 +5,30 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { tomlString, upsertTomlKey } from "./codex-runtime-config";
 
+// Codex 0.130 [features] flags applied non-interactively.
+// Source: codex-rs/features/src/lib.rs @ openai/codex main.
+//
+// Removed in Codex 0.129+ (kept here as historical reference, not written):
+//   ["undo", "true"]   -> GhostCommit feature retired
+//   ["steer", "true"]  -> now default behavior (Enter submits)
+//
+// UnderDevelopment flags (chronicle, enable_fanout, child_agents_md,
+// plugin_hooks) intentionally NOT forced. Codex defaults apply so promotions
+// to Stable are picked up automatically.
 const NON_INTERACTIVE_FEATURES: Array<[string, "true" | "false"]> = [
-	["memories", "true"],
-	["undo", "true"],
-	["chronicle", "true"],
-	["goals", "true"],
-	["enable_fanout", "true"],
-	["steer", "true"],
+	// Core stable
+	["hooks", "true"],
 	["tool_search", "true"],
-	["child_agents_md", "true"],
+	["personality", "true"],
+	["multi_agent", "true"],
+	// Stable QoL — already true by default in Codex, made explicit for traceability
+	["fast_mode", "true"],
+	["shell_snapshot", "true"],
+	["enable_request_compression", "true"],
+	["skill_mcp_dependency_install", "true"],
+	// Experimental opt-in
+	["memories", "true"],
+	["goals", "true"],
 ];
 const NON_INTERACTIVE_TOPLEVEL: Array<[string, string]> = [
 	["web_search", tomlString("cached")],

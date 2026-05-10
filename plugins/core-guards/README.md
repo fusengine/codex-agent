@@ -91,7 +91,7 @@ Modular SOLID statusline for Codex terminal.
 
 This script will:
 - Install Codex hooks in `~/.codex/hooks.json`
-- Enable `features.codex_hooks` in `~/.codex/config.toml`
+- Enable `features.hooks` in `~/.codex/config.toml` (canonical key since Codex 0.129+, PR openai/codex#20522 — `codex_hooks` accepted as legacy alias)
 - Install statusline bun dependencies
 - Configure `[tui].status_line` in `~/.codex/config.toml`
 

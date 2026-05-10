@@ -20,8 +20,12 @@ async function confirmOrSkip(message: string, initialValue: boolean): Promise<bo
 }
 
 async function collectAnswers(): Promise<CodexFeatureAnswers> {
+	// `undo` and `personality` prompts removed:
+	//  - undo  -> GhostCommit feature retired in Codex 0.129+ (no-op)
+	//  - personality -> the legacy string ("pragmatic"|"friendly"|"none") was
+	//    silently ignored at top level. Personality is a [features] boolean,
+	//    enabled by default in defaults service.
 	const memories = await confirmOrSkip("Enable Codex Memories (recommended)?", true);
-	const undo = await confirmOrSkip("Enable per-turn git ghost snapshots (undo)?", true);
 	const apps = await confirmOrSkip("Enable ChatGPT Apps/Connectors (experimental)?", false);
 	const approvalPolicy = await selectOrSkip("Approval policy:", [
 		{ value: "untrusted", label: "untrusted (escalate most commands — safe)" },
@@ -38,17 +42,12 @@ async function collectAnswers(): Promise<CodexFeatureAnswers> {
 		{ value: "live", label: "live (always fresh)" },
 		{ value: "disabled", label: "disabled" },
 	], "cached");
-	const personality = await selectOrSkip("Personality:", [
-		{ value: "pragmatic", label: "pragmatic (concise, factual)" },
-		{ value: "friendly", label: "friendly" },
-		{ value: "none", label: "none (no personality)" },
-	], "pragmatic");
 	const reasoningEffort = await selectOrSkip("Model reasoning effort:", [
 		{ value: "high", label: "high (slower, deeper)" },
 		{ value: "medium", label: "medium" },
 		{ value: "low", label: "low (faster, shallower)" },
 	], "high");
-	return { memories, undo, apps, approvalPolicy, sandboxMode, webSearch, personality, reasoningEffort };
+	return { memories, apps, approvalPolicy, sandboxMode, webSearch, reasoningEffort };
 }
 
 /** Run the interactive prompt flow and persist answers to config.toml. */

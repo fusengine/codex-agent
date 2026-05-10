@@ -70,7 +70,10 @@ export function enableCodexFeature(configPath: string, feature: string): void {
 }
 
 export function enableCodexHooks(configPath: string): void {
-	enableCodexFeature(configPath, "codex_hooks");
+	// Canonical key since Codex 0.129+ (PR openai/codex#20522).
+	// Legacy alias `codex_hooks` still resolves to Feature::CodexHooks but
+	// triggers a deprecation warning in 0.129. Write the canonical key.
+	enableCodexFeature(configPath, "hooks");
 	const text = readFileSync(configPath, "utf8");
 	const updated = upsertTopLevelTomlKey(text, "suppress_unstable_features_warning", "true");
 	writeFileSync(configPath, `${updated.trimEnd()}\n`);

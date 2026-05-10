@@ -105,7 +105,7 @@ Each plugin provides an **expert agent** that auto-activates when it detects the
 | **`.codexignore`** | Bloque les writes/edits sur fichiers sensibles (gitignore-style) — `.env`, `secrets/`, `*.key` jamais touchés |
 | **Transcript watcher** | Capture les outils natifs Codex non-hookables (`read_file`, `web_search`, `spawn_agent`) via tail du rollout JSONL — alimente les guards APEX |
 | **Cross-platform TTS** | Notification audio fin de tâche : macOS (`afplay`), Linux (`paplay`/`aplay`/`mpv`/`ffplay`), Windows (`SoundPlayer`) |
-| **Codex feature flags** | Installer interactif : `memories`, `undo`, `chronicle`, `goals`, `enable_fanout`, `steer`, `tool_search`, `child_agents_md`, `approval_policy`, `sandbox_mode`, `personality`, `model_reasoning_effort` |
+| **Codex feature flags** | Audit 0.130 : `hooks`, `tool_search`, `personality`, `multi_agent`, `fast_mode`, `shell_snapshot`, `enable_request_compression`, `skill_mcp_dependency_install`, `memories`, `goals` (defaults) + 6 prompts (`memories`, `apps`, `approval_policy`, `sandbox_mode`, `web_search`, `model_reasoning_effort`) |
 
 ## Documentation
 

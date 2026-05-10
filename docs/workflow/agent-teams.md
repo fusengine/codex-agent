@@ -4,18 +4,25 @@ Coordinate multiple Codex agents working in true parallel with separate context 
 
 ## Enable
 
-Sous Codex CLI 0.128+, les agent teams reposent sur `enable_fanout`, `child_agents_md` et `steer` — l'installer les active par défaut :
+Sous Codex CLI 0.130+, les agent teams reposent sur `multi_agent` (Stable, default true) et `tool_search` (Stable). L'installer écrit explicitement :
 
 ```toml
 # ~/.codex/config.toml
 [features]
-enable_fanout = true
-child_agents_md = true
-steer = true
+multi_agent = true       # Stable (anciennement collab — alias legacy préservé)
 tool_search = true
 ```
 
-Ou via l'installer : `setup.sh` les écrit automatiquement.
+**Notes audit 0.130** :
+- `steer` : retiré en 0.129+ (Enter submit = comportement par défaut)
+- `enable_fanout`, `child_agents_md` : UnderDevelopment côté OpenAI — laissés aux défauts Codex (`false`) pour ne pas activer des features non finalisées. Les promotions futures vers Stable seront prises en compte automatiquement.
+
+Activation manuelle si besoin :
+
+```bash
+codex features enable enable_fanout
+codex features enable child_agents_md
+```
 
 ## Architecture
 

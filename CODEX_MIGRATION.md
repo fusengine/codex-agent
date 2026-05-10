@@ -44,36 +44,48 @@ The installer (`setup.sh` / `setup.ps1`):
 1. Copies each plugin to `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/`
 2. Mirrors `plugins/_shared/` to `~/.codex/plugins/cache/fusengine-plugins/<plugin>/_shared/` (resolved via `..` x3 from `scripts/`)
 3. Rewrites relative `./scripts/...` paths to absolute paths in `hooks.json`
-4. Enables `[features] codex_hooks = true` and `[features] plugin_hooks = true` in `~/.codex/config.toml`
+4. Enables `[features] hooks = true` (canonical key since 0.129+, PR openai/codex#20522 — `codex_hooks` is accepted as a legacy alias)
 
 ## Codex feature flags
 
-The installer writes the following non-interactive flags (defaults):
+The installer writes the following non-interactive defaults to `~/.codex/config.toml` (audited against Codex 0.130, source `codex-rs/features/src/lib.rs`):
 
 ```toml
 [features]
-codex_hooks = true
-plugin_hooks = true
-memories = true
-undo = true
-chronicle = true
-goals = true
-enable_fanout = true
-steer = true
+# Core stable
+hooks = true
 tool_search = true
-child_agents_md = true
+personality = true
+multi_agent = true
+# Stable QoL — already true by default in Codex, made explicit for traceability
+fast_mode = true
+shell_snapshot = true
+enable_request_compression = true
+skill_mcp_dependency_install = true
+# Experimental opt-in
+memories = true
+goals = true
 ```
 
-And exposes 8 interactive prompts via `@clack/prompts`:
+**Removed in Codex 0.129+ — no longer written:**
+
+- `undo` — `GhostCommit` feature retired
+- `steer` — now default behavior (Enter submits)
+
+**UnderDevelopment flags — intentionally NOT forced** (Codex defaults applied so promotions to Stable are picked up automatically):
+
+- `chronicle`, `enable_fanout`, `child_agents_md`, `plugin_hooks`
+
+Interactive prompts via `@clack/prompts`:
 
 - `memories` — persistent knowledge
-- `undo` — undo session
 - `apps` — third-party apps
 - `approval_policy` — approval policy
 - `sandbox_mode` — sandbox mode
 - `web_search` — native web search
-- `personality` — response tone
 - `model_reasoning_effort` — reasoning effort
+
+The legacy `personality` string prompt (`pragmatic|friendly|none`) was removed: top-level `personality` is not a Codex schema field and was silently ignored. The `[features] personality` boolean is now set in defaults.
 
 Modules:
 

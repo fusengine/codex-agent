@@ -4,12 +4,10 @@ import { tomlString, upsertTomlKey } from "./codex-runtime-config";
 
 export interface CodexFeatureAnswers {
 	memories: boolean;
-	undo: boolean;
 	apps: boolean;
 	approvalPolicy: string;
 	sandboxMode: string;
 	webSearch: string;
-	personality: string;
 	reasoningEffort: string;
 }
 
@@ -30,13 +28,15 @@ export function upsertTopLevel(text: string, key: string, value: string): string
 
 export function applyCodexAnswers(configPath: string, a: CodexFeatureAnswers): void {
 	let text = existsSync(configPath) ? readFileSync(configPath, "utf8") : "";
+	// Removed in 0.129+ (no-op, not written): [features].undo
+	// `personality` is a [features] boolean (Stable, default true) — set in
+	// defaults, not exposed as a prompt because the legacy "pragmatic|friendly|none"
+	// string was silently ignored (top-level `personality` is not a Codex schema field).
 	text = upsertTomlKey(text, "features", "memories", String(a.memories));
-	text = upsertTomlKey(text, "features", "undo", String(a.undo));
 	text = upsertTomlKey(text, "features", "apps", String(a.apps));
 	text = upsertTopLevel(text, "approval_policy", tomlString(a.approvalPolicy));
 	text = upsertTopLevel(text, "sandbox_mode", tomlString(a.sandboxMode));
 	text = upsertTopLevel(text, "web_search", tomlString(a.webSearch));
-	text = upsertTopLevel(text, "personality", tomlString(a.personality));
 	text = upsertTopLevel(text, "model_reasoning_effort", tomlString(a.reasoningEffort));
 	writeFileSync(configPath, `${text.trimEnd()}\n`);
 }

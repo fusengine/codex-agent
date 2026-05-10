@@ -71,7 +71,7 @@ describe("codex runtime", () => {
 
 		const config = readFileSync(runtimePaths().configToml, "utf8");
 		expect(config).toContain("suppress_unstable_features_warning = true");
-		expect(config).toContain("codex_hooks = true");
+		expect(config).toContain("hooks = true");
 		expect(config).toContain("old = true");
 	});
 

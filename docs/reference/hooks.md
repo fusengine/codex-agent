@@ -14,7 +14,7 @@ The hooks system ensures that agents:
 ### Codex CLI 0.128+ (natif)
 
 ```
-~/.codex/config.toml                 ← [features] codex_hooks=true, plugin_hooks=true
+~/.codex/config.toml                 ← [features] hooks=true (canonical 0.129+, codex_hooks legacy alias)
        │
        ▼
 ~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/hooks.json
@@ -50,7 +50,7 @@ plugins/*/hooks/hooks.json
 L'installer écrit :
 - **`hooks.json`** par plugin dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/local/` (chemins absolus)
 - **`_shared/`** mirroré dans `~/.codex/plugins/cache/fusengine-plugins/<plugin>/_shared/`
-- **`[features] codex_hooks=true, plugin_hooks=true`** + 8 feature flags Codex (memories, undo, chronicle, goals, enable_fanout, steer, tool_search, child_agents_md) dans `~/.codex/config.toml`
+- **`[features] hooks=true`** (canonical 0.129+, PR openai/codex#20522) + 9 flags audités 0.130 (`tool_search`, `personality`, `multi_agent`, `fast_mode`, `shell_snapshot`, `enable_request_compression`, `skill_mcp_dependency_install`, `memories`, `goals`) dans `~/.codex/config.toml`. Removed in 0.129+ (no-op): `undo`, `steer`. UnderDevelopment laissés aux défauts Codex : `chronicle`, `enable_fanout`, `child_agents_md`, `plugin_hooks`
 - **API keys** (prompts interactifs)
 - **Shell config** (bash/zsh/fish/PowerShell)
 - **MCP servers** (sélection interactive)
@@ -261,7 +261,7 @@ ls ~/.codex/plugins/cache/fusengine-plugins/*/local/hooks.json
 grep -l "PreToolUse" ~/.codex/plugins/cache/fusengine-plugins/*/local/hooks.json
 
 # Vérifier les feature flags Codex
-grep -E "codex_hooks|plugin_hooks" ~/.codex/config.toml
+grep -E "^hooks|^tool_search|^multi_agent" ~/.codex/config.toml
 
 # Re-run installation (macOS/Linux)
 ~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh

@@ -45,7 +45,7 @@ This installs:
 - **Shell config** (bash/zsh/fish/PowerShell)
 - **Statusline**
 - **MCP servers** (interactive selection of 27 servers)
-- **Codex feature flags** — defaults non-interactifs (`memories`, `undo`, `chronicle`, `goals`, `enable_fanout`, `steer`, `tool_search`, `child_agents_md` = `true`) + 8 prompts interactifs (`memories`, `undo`, `apps`, `approval_policy`, `sandbox_mode`, `web_search`, `personality`, `model_reasoning_effort`)
+- **Codex feature flags** (audit 0.130) — defaults non-interactifs : `hooks`, `tool_search`, `personality`, `multi_agent`, `fast_mode`, `shell_snapshot`, `enable_request_compression`, `skill_mcp_dependency_install`, `memories`, `goals` (= `true`). Removed (no-op) : `undo`, `steer`. UnderDevelopment laissés aux défauts Codex : `chronicle`, `enable_fanout`, `child_agents_md`, `plugin_hooks`. + 6 prompts interactifs : `memories`, `apps`, `approval_policy`, `sandbox_mode`, `web_search`, `model_reasoning_effort`
 
 ## 4. MCP Server Selection
 
@@ -136,5 +136,5 @@ grep -l "PreToolUse" ~/.codex/plugins/cache/fusengine-plugins/*/local/hooks.json
 Vérifier les feature flags Codex :
 
 ```bash
-grep -E "codex_hooks|plugin_hooks|memories|undo|chronicle" ~/.codex/config.toml
+grep -E "^hooks|^tool_search|^memories|^personality" ~/.codex/config.toml
 ```

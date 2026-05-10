@@ -40,7 +40,9 @@ export function createCodexRuntimePaths(
 
 export function installCodexRuntime(paths: CodexRuntimePaths): void {
 	enableCodexHooks(paths.configToml);
-	enableCodexFeature(paths.configToml, "plugin_hooks");
+	// `plugin_hooks` removed: it is an UnderDevelopment Codex feature unrelated
+	// to standard hook execution. Our marketplace hooks load via the canonical
+	// `hooks` flag enabled above (PR openai/codex#20522).
 	writeMarketplaceRegistry(paths.marketplaceRoot);
 	installMarketplacePluginCache(paths.marketplaceRoot, dirname(paths.configToml));
 	registerCodexMarketplace(paths.configToml, paths.marketplaceRoot);

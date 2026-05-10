@@ -13,7 +13,7 @@ export async function runCodexFeaturesStep(
 ): Promise<void> {
 	if (nonInteractive) {
 		applyCodexFeatureDefaults(configPath);
-		p.log.info("Codex features: applied defaults (memories, undo, web_search=cached)");
+		p.log.info("Codex features: applied defaults (hooks, memories, personality, web_search=cached)");
 		return;
 	}
 	await promptCodexFeatures(configPath);
