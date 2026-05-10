@@ -4,7 +4,7 @@
  */
 import * as p from "@clack/prompts";
 import { API_KEYS } from "../config/api-keys";
-import { ENV_FILE, loadEnvFile, saveEnvFile } from "./env-file";
+import { envFilePath, loadEnvFile, saveEnvFile } from "./env-file";
 
 /**
  * Configure API keys with prompts
@@ -42,7 +42,7 @@ export async function configureApiKeys(): Promise<void> {
 
 	if (hasChanges) {
 		saveEnvFile(updated);
-		p.log.success(`Saved to ${ENV_FILE}`);
+		p.log.success(`Saved to ${envFilePath()}`);
 	}
 
 	p.outro("✓ API keys configured");
