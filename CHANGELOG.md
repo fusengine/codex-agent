@@ -1,5 +1,19 @@
 # Release Notes
 
+## [1.0.2] - 10-05-2026
+
+### Documentation
+
+- docs(paths): align with Codex 0.130 install layout
+  - Setup.sh references → `~/.codex/.tmp/marketplaces/<name>/` (where Codex puts the marketplace clone post `/plugin marketplace add`)
+  - Runtime references (skills, agents, scripts) → `~/.codex/plugins/cache/<marketplace>/<plugin>/<version>/` (per developers.openai.com/codex/plugins/build)
+  - The legacy `~/.codex/plugins/marketplaces/` is created by our setup.sh as our internal hub, not by Codex itself
+
+### Fixed
+
+- Removed `fuse-memory` entry from `marketplace.json` (plugin code is gitignored — caused "plugin/read failed" in TUI for users installing from the public repo)
+- Deleted orphan `docs/plugins/memory.md` (was already gitignored)
+
 ## [1.0.1] - 10-05-2026
 
 ### Fixed
