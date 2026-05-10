@@ -29,6 +29,9 @@ npm-debug.log*
 .env.*
 !.env.example
 .mcp.json
+# Claude Code artifacts (Codex repo — should not contain Claude tooling)
+.claude/
+
 # APEX tracking (auto-generated)
 .codex/*
 plugins/core-guards/statusline/node_modules
