@@ -28,13 +28,13 @@
 ### macOS / Linux
 
 ```bash
-~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh
+~/.codex/.tmp/marketplaces/fusengine-plugins/setup.sh
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-~/.codex/plugins/marketplaces/fusengine-plugins/setup.ps1
+~/.codex/.tmp/marketplaces/fusengine-plugins/setup.ps1
 ```
 
 This installs:
@@ -121,7 +121,7 @@ curl -fsSL https://bun.sh/install | bash
 ### Hooks not working
 ```bash
 # Re-run setup
-~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh  # or setup.ps1 on Windows
+~/.codex/.tmp/marketplaces/fusengine-plugins/setup.sh  # or setup.ps1 on Windows
 ```
 
 ### Check hooks installation

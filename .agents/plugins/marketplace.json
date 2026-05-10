@@ -207,18 +207,6 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Development"
-    },
-    {
-      "name": "fuse-memory",
-      "source": {
-        "source": "local",
-        "path": "./plugins/memory-neural"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Development"
     }
   ]
 }

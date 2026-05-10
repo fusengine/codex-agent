@@ -86,7 +86,7 @@ Modular SOLID statusline for Codex terminal.
 ### 2. Install Hooks + Statusline
 
 ```bash
-~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh
+~/.codex/.tmp/marketplaces/fusengine-plugins/setup.sh
 ```
 
 This script will:

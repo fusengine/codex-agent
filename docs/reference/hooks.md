@@ -39,12 +39,12 @@ plugins/*/hooks/hooks.json
 
 ### macOS / Linux
 ```bash
-~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh
+~/.codex/.tmp/marketplaces/fusengine-plugins/setup.sh
 ```
 
 ### Windows (PowerShell)
 ```powershell
-~/.codex/plugins/marketplaces/fusengine-plugins/setup.ps1
+~/.codex/.tmp/marketplaces/fusengine-plugins/setup.ps1
 ```
 
 L'installer écrit :
@@ -264,10 +264,10 @@ grep -l "PreToolUse" ~/.codex/plugins/cache/fusengine-plugins/*/local/hooks.json
 grep -E "^hooks|^tool_search|^multi_agent" ~/.codex/config.toml
 
 # Re-run installation (macOS/Linux)
-~/.codex/plugins/marketplaces/fusengine-plugins/setup.sh
+~/.codex/.tmp/marketplaces/fusengine-plugins/setup.sh
 
 # Re-run installation (Windows PowerShell)
-~/.codex/plugins/marketplaces/fusengine-plugins/setup.ps1
+~/.codex/.tmp/marketplaces/fusengine-plugins/setup.ps1
 ```
 
 ### Hook not executing

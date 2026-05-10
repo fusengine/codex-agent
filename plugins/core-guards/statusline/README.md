@@ -59,7 +59,7 @@ src/
 **Automatic installation (recommended):**
 
 ```bash
-$CODEX_HOME/plugins/marketplaces/fusengine-plugins/setup.sh
+$CODEX_HOME/.tmp/marketplaces/fusengine-plugins/setup.sh
 ```
 
 This script automatically installs hooks AND statusline.
@@ -67,7 +67,7 @@ This script automatically installs hooks AND statusline.
 **Manual installation:**
 
 ```bash
-cd $CODEX_HOME/plugins/marketplaces/fusengine-plugins/plugins/core-guards/statusline
+cd $CODEX_HOME/plugins/cache/fusengine-plugins/core-guards/<version>/statusline
 bun install
 ```
 

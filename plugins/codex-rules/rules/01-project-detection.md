@@ -1,6 +1,6 @@
 ## Project Detection -> Domain Agent
 
-Scan: `$CODEX_HOME/plugins/marketplaces/fusengine-plugins/plugins/*/` + `$CODEX_HOME/agents/*.md`
+Scan: `$CODEX_HOME/plugins/cache/fusengine-plugins/*/*/` + `$CODEX_HOME/agents/*.md`
 
 | Project Indicator | Agent |
 |-------------------|-------|

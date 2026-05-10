@@ -9,7 +9,7 @@
 | **Gemini Design** | AI frontend | `design-expert` |
 
 ## Skills Location
-`$CODEX_HOME/plugins/marketplaces/fusengine-plugins/plugins/{agent}/skills/`
+`$CODEX_HOME/plugins/cache/fusengine-plugins/{agent}/{version}/skills/`
 SOLID refs: `skills/solid-*/references/`
 
 ## Documentation
