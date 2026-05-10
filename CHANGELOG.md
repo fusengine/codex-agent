@@ -1,5 +1,22 @@
 # Release Notes
 
+## [1.0.4] - 10-05-2026
+
+### Changed
+
+- feat(design): replace fuse-design with impeccable hybrid + Gemini renderer
+  - Spine: pbakaus/impeccable v3.0.7 (Apache 2.0) — 35 lazy-loaded references, 22 deterministic detection scripts (27 anti-pattern rules)
+  - Renderer: Gemini Design MCP retained (`mcp__gemini-design__create_frontend` invoked from `craft.md`)
+  - Sector OKLCH palette templates: fintech, ecommerce, devtool, creative, health
+  - Plugin version bumped: fuse-design 1.0.0 → 1.1.0 (breaking)
+  - Dropped: 7 phase folders, 20 Python scripts, 11 PreToolUse/PostToolUse hooks, 4 commands
+  - Cross-plugin delegation preserved (agent name `design-expert` unchanged)
+  - License: MIT (wrapper) + Apache 2.0 (impeccable methodology)
+
+### Fixed
+
+- `.gitignore`: add `.claude/` (Codex repo should not contain Claude tooling artifacts)
+
 ## [1.0.3] - 10-05-2026
 
 ### Added
