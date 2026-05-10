@@ -120,14 +120,14 @@ Sprint 2 aligns the converter, skills, and setup pipeline with the Codex 0.130 s
 
 `scripts/src/services/codex-model-mapper.ts` maps Anthropic aliases used in plugin agents to Codex models with explicit reasoning effort:
 
-| Anthropic alias | Codex model           | Reasoning effort |
-|-----------------|-----------------------|------------------|
-| `opus`          | `gpt-5.4`             | `high`           |
-| `sonnet`        | `gpt-5.4-mini`        | `medium`         |
-| `haiku`         | `gpt-5.3-codex-spark` | `medium`         |
+| Anthropic alias | Codex model      | Reasoning effort |
+|-----------------|------------------|------------------|
+| `opus`          | `gpt-5.5`        | `high`           |
+| `sonnet`        | `gpt-5.4`        | `medium`         |
+| `haiku`         | `gpt-5.4-mini`   | `low`            |
 | missing / unknown | omitted (inherits parent session) | `medium` |
 
-Rationale: keep heavy reasoning agents on `opus → gpt-5.4 high`, drop routine agents to `sonnet → gpt-5.4-mini`, route fast/cheap utility agents to `haiku → gpt-5.3-codex-spark`. Unknown aliases stay unset so the parent session model wins (no silent override).
+Rationale (refreshed for GPT-5.5, released 2026-04-23): premium reasoning agents run on `opus → gpt-5.5 high` (1.05M context, xhigh-capable). Standard agents drop to `sonnet → gpt-5.4 medium` to avoid the 2× cost of 5.5 on routine work. Fast/cheap utility agents use `haiku → gpt-5.4-mini low` — replaces the prior `gpt-5.3-codex-spark` mapping which is gated to ChatGPT Pro subscribers. Unknown aliases stay unset so the parent session model wins.
 
 Reference: [developers.openai.com/codex/subagents](https://developers.openai.com/codex/subagents).
 

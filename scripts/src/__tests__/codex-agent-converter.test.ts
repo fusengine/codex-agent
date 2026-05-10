@@ -35,7 +35,7 @@ Use Context7 and Exa.
 		expect(agents[0].fileName).toBe("fuse-ai-pilot-research-expert.toml");
 		expect(agents[0].toml).toContain('sandbox_mode = "read-only"');
 		expect(agents[0].toml).toContain('developer_instructions = """');
-		expect(agents[0].toml).toContain('model = "gpt-5.4-mini"');
+		expect(agents[0].toml).toContain('model = "gpt-5.4"');
 		expect(agents[0].toml).toContain("[mcp_servers.context7]");
 		expect(agents[0].toml).toContain("[mcp_servers.exa]");
 		expect(agents[0].toml).toContain("Source agent: ai-pilot/agents/research-expert.md");
@@ -72,6 +72,6 @@ model: opus
 		const content = readFileSync(file, "utf8");
 		expect(content).toContain('name = "fuse_nextjs_nextjs_expert"');
 		expect(content).toContain('model_reasoning_effort = "high"');
-		expect(content).toContain('model = "gpt-5.4"');
+		expect(content).toContain('model = "gpt-5.5"');
 	});
 });
